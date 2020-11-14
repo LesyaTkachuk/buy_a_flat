@@ -1,0 +1,18 @@
+.container {
+  background-image: url(../../../assets/images/bg4-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: initial;
+}
+
+@media (min-width: 768px) {
+  .container {
+    background-image: url(../../../assets/images/bg4-tablet.svg);
+  }
+}
+
+@media (min-width: 1240px) {
+  .container {
+    background-image: url(../../../assets/images/bg4-desktop.svg);
+  }
+}

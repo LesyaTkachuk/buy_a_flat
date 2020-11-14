@@ -1,0 +1,61 @@
+.modal__logout {
+  width: 90%;
+  height: auto;
+  padding: 2em 0 2em 0;
+  background: #ffffff;
+  box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+    0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 4;
+}
+
+.logout__wrapper {
+  height: 100%;
+  width: auto;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logout__text {
+  margin: 0 auto;
+  font-family: var(--font-gilroy-extrabold);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.logout_wrapper__Bth {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout__Bth {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 36px;
+  font-family: var(--main-font-stack);
+  background: var(--orange-color);
+  border-radius: 8px;
+  border-width: 0px;
+  color: #ffffff;
+}
+
+.logout__Bth_not {
+  background: grey;
+}
+
+@media (min-width: 768px) {
+  .modal__logout {
+    width: 500px;
+    height: 180px;
+    position: relative;
+  }
+}

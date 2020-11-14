@@ -1,0 +1,50 @@
+.wrapper {
+  padding-top: 34px;
+  margin: 0 auto;
+}
+
+.planForm {
+  margin-bottom: 34px;
+}
+
+.planningPage {
+  margin: 0 auto;
+  padding-bottom: 205px;
+  background-image: url('../../assets/images/plan-page-coins.svg');
+  background-size: 99px 143px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+@media screen and (min-width: 768px) and (max-width: 1239px) {
+  .wrapper {
+    margin: 0 auto;
+    padding-top: 74px;
+  }
+  .planningPage {
+    margin: 0 auto;
+    width: 690px;
+    padding-bottom: 360px;
+    background-size: 179px 257px;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 770px;
+    padding-top: 64px;
+  }
+
+  .planForm {
+    margin: 0 auto;
+    margin-bottom: 26px;
+  }
+
+  .planningPage {
+    margin: 0 auto;
+    width: 1170px;
+    padding-bottom: 74px;
+    background-size: 99px 143px;
+    background-position: bottom right;
+  }
+}

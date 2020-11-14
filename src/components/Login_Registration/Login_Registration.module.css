@@ -1,0 +1,220 @@
+.modal__login {
+  width: 100%;
+  height: auto;
+}
+
+.loginRegist__form {
+  height: 100%;
+  width: auto;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loginRegist__heading {
+  height: 20px;
+  text-align: center;
+  display: block;
+  margin: 42px 0 20px 0px;
+
+  font-family: var(--font-gilroy-extrabold);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.loginRegist__input_text {
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  left: 13px;
+  top: 0px;
+
+  display: block;
+  background-color: white;
+  padding-left: 5px;
+
+  font-family: var(--main-font-stack);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  color: rgba(24, 25, 31, 0.54);
+  z-index: 4;
+}
+
+.loginRegist__input {
+  position: absolute;
+  width: 100%;
+  height: 56px;
+  left: 0px;
+  top: 7px;
+
+  border: 1px solid rgba(0, 0, 0, 0.36);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+  z-index: 3;
+}
+
+.loginRegist__input:focus {
+  border: 1px solid #2196f3;
+  color: #2196f3;
+}
+
+.loginRegist__input_error {
+  border-color: red;
+  color: red;
+}
+
+.loginRegist__input_error:focus {
+  border: 1px solid red;
+  color: red;
+}
+
+.loginRegist__invalid {
+  margin: 70px 0 0 10px;
+  /* margin-top: 70px; */
+
+  font-family: var(--main-font-stack);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  color: #ff2e00;
+}
+
+.loginRegist__inputform {
+  position: relative;
+  width: 280px;
+  height: 65px;
+  margin: 0 auto;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+/* .loginRegist__inputform:nth-child(4) {
+  margin-bottom: 0px;
+} */
+.loginRegist__input_bottom_null {
+  margin-bottom: 0px
+}
+
+.login__Bth {
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 36px;
+
+  background: var(--orange-color);
+  border-radius: 8px;
+  border-width: 0px;
+}
+
+.login__Bth_text {
+  width: 40px;
+  height: 20px;
+
+  font-family: var(--main-font-stack);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+
+  margin: 0 auto;
+  -webkit-font-feature-settings: 'liga' off;
+          font-feature-settings: 'liga' off;
+
+  color: #ffffff;
+}
+
+.loginRegist__Bth {
+  width: 170px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 36px;
+
+  background: var(--orange-color);
+  border-radius: 8px;
+  border-width: 0px;
+}
+
+.loginRegist__Bth_text {
+  height: 20px;
+
+  font-family: var(--main-font-stack);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+
+  margin: 0 auto;
+  -webkit-font-feature-settings: 'liga' off;
+          font-feature-settings: 'liga' off;
+
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .modal__Registration {
+    width: 400px;
+    height: 455px;
+    position: relative;
+
+    background: #ffffff;
+    -webkit-box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+      0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+      0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .modal__login {
+    width: 400px;
+    height: 364px;
+    position: relative;
+
+    background: #ffffff;
+    -webkit-box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+      0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+      0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .loginRegist__inputform {
+    position: relative;
+    width: 316px;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}

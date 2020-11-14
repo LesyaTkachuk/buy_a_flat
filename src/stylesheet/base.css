@@ -1,0 +1,59 @@
+@import './normalize.css';
+@import './fonts.css';
+@import './vars.css';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--main-font-stack);
+}
+
+h1 {
+  font-family: var(--font-gilroy-bold);
+  margin: 0;
+}
+
+​img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  display: inline-block;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:active,
+button:focus {
+  outline: none;
+}

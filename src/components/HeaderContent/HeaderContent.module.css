@@ -1,0 +1,18 @@
+.headerContentWrapper {
+  width: 17.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .headerContentWrapper {
+    width: 690px;
+  }
+}
+
+@media (min-width: 1240px) {
+  .headerContentWrapper {
+    width: 73.75rem;
+  }
+}

@@ -1,0 +1,68 @@
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 84px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14),
+    0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.closeModal {
+  position: absolute;
+  background-image: url(../../assets/icons/close.svg);
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 14px;
+  display: block;
+  content: '';
+  top: 13px;
+  right: 13px;
+}
+
+.notifWrapper {
+  width: 310px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+
+.notifWrapper:before {
+  position: absolute;
+  top: 30px;
+  left: 177px;
+  display: block;
+  content: '';
+  width: 46px;
+  height: 46px;
+  background-image: url(../../assets/icons/notif.svg);
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+.notifTitle {
+  font-family: var(--font-gilroy-extrabold);
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--background-black-color);
+  margin-bottom: 20px;
+}
+
+.notifText {
+  font-family: var(--main-font-stack);
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--background-black-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.link {
+  display: block;
+  font-family: var(--main-font-stack);
+  font-size: 16px;
+  line-height: 19px;
+  color: #2196f3;
+  text-align: center;
+}

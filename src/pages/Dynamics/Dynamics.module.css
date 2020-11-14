@@ -1,0 +1,67 @@
+.inner {
+  margin-top: 36px;
+  margin-bottom: 55px;
+}
+
+.plan {
+  margin-top: 36px;
+}
+
+.flex {
+  margin-top: 29px;
+}
+
+.progress {
+  margin-top: 19px;
+}
+
+.gift {
+  margin-top: 36px;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    width: 515px;
+    margin: 75px auto;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+  }
+
+  .apartment {
+    width: 48%;
+  }
+
+  .progress {
+    width: 48%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1240px) {
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 55px auto;
+  }
+
+  .part {
+    width: 50%;
+  }
+
+  .part:nth-of-type(1) {
+    width: 40%;
+  }
+
+  .gift {
+    margin-top: 55px;
+  }
+
+  .flex {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userName {
+  font-family: var(--font-gilroy-extrabold);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black-font-color);
+  margin-right: 16px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+}
+
+.menuIcon {
+  background: url('../../assets/icons/menu-icon.svg');
+}
+.closeIcon {
+  background: url('../../assets/icons/close-icon.svg');
+}

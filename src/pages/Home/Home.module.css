@@ -1,0 +1,59 @@
+.wrapper {
+  width: 100%;
+  background: url('../../assets/images/first-page-mobile.svg') no-repeat center
+    bottom;
+  padding-top: 2.125rem;
+  margin-bottom: 2.125rem;
+  min-height: 56.25rem;
+}
+
+.title {
+  max-width: 28.75rem;
+  font-family: var(--font-gilroy-extrabold);
+  color: var(--black-font-color);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  text-align: center;
+  margin: 0 auto 2.125rem;
+}
+
+.title__orange {
+  color: var(--orange-color);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    background: url('../../assets/images/first-page-tablet.svg') no-repeat
+      center bottom;
+    padding-top: 7.625rem;
+    margin-bottom: 7.625rem;
+    min-height: 59.5rem;
+  }
+
+  .title {
+    font-size: 1.9375rem;
+    line-height: 3.125rem;
+    margin: 0 auto 2.5rem;
+  }
+}
+
+@media (min-width: 1240px) {
+  .wrapper {
+    background: url('../../assets/images/first-page-desctop.svg') no-repeat
+      right bottom;
+    padding: 4.375rem 2.5rem 0;
+    /* min-height: calc(100vh - 72px); */
+    min-height: 40.5rem;
+    margin-bottom: 4.375rem;
+  }
+  .title {
+    font-size: 2.25rem;
+    text-align: left;
+    margin: 0 auto 2.875rem 6.625rem;
+  }
+  .title__break {
+    display: block;
+  }
+}

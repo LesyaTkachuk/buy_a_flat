@@ -1,0 +1,27 @@
+.buttonLogout {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--blue-button-color);
+}
+
+.buttonLogoutTitle {
+  font-family: var(--main-font-stack);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--black-font-color);
+  margin-left: 16px;
+}
+
+.buttonLogoutIcon {
+  display: inline-block;
+  width: 10px;
+  height: 12px;
+  margin-left: 13px;
+}

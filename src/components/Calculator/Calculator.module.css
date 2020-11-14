@@ -1,0 +1,46 @@
+.calculator {
+  height: 24.625rem;
+  width: 16.375rem;
+  display: block;
+  box-sizing: border-box;
+  padding: 1.875rem 1.5rem;
+  background-color: #f3f3f5;
+  box-shadow: 0rem 1.5rem 2.375rem rgba(0, 0, 0, 0.14),
+    0rem 0.5625rem 2.875rem rgba(0, 0, 0, 0.12),
+    0rem 0.6875rem 0.9375rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+.button {
+  font-size: 1.375rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: #212638;
+  box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.16);
+  border-radius: 1.375rem;
+  border: none;
+}
+
+.button:focus {
+  opacity: 0.8;
+  outline: 0.0313rem;
+}
+
+.button:active {
+  opacity: 0.5;
+}
+
+.whiteButton {
+  background-color: #ffffff;
+  margin-right: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.orangeButton {
+  background-color: #f2a23c;
+}
+
+.largeButton {
+  width: 6.25rem;
+  text-align: left;
+  padding-left: 1.25rem;
+}

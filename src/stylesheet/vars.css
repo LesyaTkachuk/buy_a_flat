@@ -1,0 +1,17 @@
+:root {
+  --main-font-stack: Roboto, Arial, sans-serif;
+  --font-gilroy-extrabold: Gilroy-ExtraBold;
+  --font-gilroy-bold: Gilroy-Bold;
+  --black-font-color: #18191f;
+  --grey-font-color: rgba(24, 25, 31, 0.54);
+  --orange-color: #ff6c00;
+  --blue-planform-color: #2196f3;
+  --blue-button-color: #e3eaff;
+  --blue-color: #e1f3f5;
+  --background-grey-color: #f7f7f7;
+  --background-black-color: #373b53;
+  --modal-color: rgba(55, 59, 83, 0.2);
+  --border-black: #b6c4d4;
+  --chart-blue: #7c9af2;
+  --chart-grey: #d7d8dd;
+}

@@ -1,0 +1,110 @@
+.componentBlock {
+  background-color: var(--background-black-color);
+  border-radius: 0.5rem;
+  font-family: var(--main-font-stack);
+  padding-bottom: 2.125rem;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #ffff;
+  text-align: center;
+  padding-top: 2.125rem;
+  margin-bottom: 1.4375rem;
+}
+
+.innerWrapper {
+  margin: 0 2.5rem;
+}
+
+.borderBox {
+  position: relative;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.36);
+  border-radius: 0.5rem;
+  padding: 1.125rem 0;
+  margin-bottom: 1rem;
+  width: 12.5rem;
+}
+
+.borderText {
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  background-color: var(--background-black-color);
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  padding: 0 0.25rem;
+}
+
+.valueBox {
+  color: #ffff;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  text-align: left;
+  padding-left: 0.75rem;
+}
+
+.button {
+  display: block;
+  background-color: var(--orange-color);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  color: #ffff;
+  padding: 1.125rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 12.5rem;
+  text-align: center;
+}
+
+.disabled {
+  background: rgba(170, 171, 182, 0.54);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 768px) {
+  .componentBlock {
+    width: 43.125rem;
+    padding: 0 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .title {
+    text-align: left;
+    padding-top: 1.5rem;
+  }
+
+  .innerWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .borderBox {
+    margin: 0 1.25rem 0 0;
+  }
+
+  .button {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1240px) {
+  .componentBlock {
+    width: 48.125rem;
+    margin: 0 auto;
+  }
+
+  .contentWrapper {
+    width: 40rem;
+    margin: 0 auto;
+  }
+
+  .valueBox {
+    left: 16.375rem;
+  }
+}
