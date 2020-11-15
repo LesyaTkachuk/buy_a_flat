@@ -3,7 +3,7 @@ import { familyOperations } from '../family';
 import { globalActions } from '../global';
 import authActions from './authActions';
 
-axios.defaults.baseURL = 'https://flat-finance.herokuapp.com';
+axios.defaults.baseURL = 'https://buy-a-flat.herokuapp.com/';
 
 const token = {
   set(token) {
