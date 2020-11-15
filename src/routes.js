@@ -16,7 +16,7 @@ export default [
     name: 'Planning',
     path: '/planning',
     exact: true,
-    showInMenu: 'Персональный план',
+    showInMenu: 'План',
     component: lazy(() =>
       import('./pages/Planning' /* webpackChunkName: "planning-page" */),
     ),
@@ -41,6 +41,17 @@ export default [
     exact: true,
     component: lazy(() =>
       import('./pages/Dynamics' /* webpackChunkName: "dynamics-page" */),
+    ),
+    private: true,
+    restricted: false,
+  },
+  {
+    name: 'Statistics',
+    path: '/statistics',
+    showInMenu: 'Статистика',
+    exact: true,
+    component: lazy(() =>
+      import('./pages/Statistics' /* webpackChunkName: "statistics-page" */),
     ),
     private: true,
     restricted: false,

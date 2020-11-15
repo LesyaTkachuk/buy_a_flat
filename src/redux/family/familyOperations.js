@@ -1,7 +1,7 @@
 import axios from 'axios';
 import familyActions from './familyActions';
 
-axios.defaults.baseURL = 'https://flat-finance.herokuapp.com';
+axios.defaults.baseURL = 'https://buy-a-flat.herokuapp.com/';
 
 const addFamily = credentials => dispatch => {
   dispatch(familyActions.addFamilyRequest());
