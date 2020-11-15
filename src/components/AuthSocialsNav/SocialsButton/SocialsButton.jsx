@@ -13,7 +13,7 @@ class SocialsButton extends Component {
       <a
         href={
           label === 'Sign up with Google'
-            ? 'https://flat-finance.herokuapp.com/auth/google'
+            ? 'https://buy-a-flat.herokuapp.com/auth/google'
             : '/'
         }
         className={`${styles.buttonAuth} ${classForBtn}`}
