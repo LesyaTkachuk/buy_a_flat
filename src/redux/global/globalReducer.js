@@ -21,6 +21,7 @@ const initialState = {
     showLogin: true,
     showNavPage: false,
     showExpensesPage: false,
+    showStatsPage: false,
     isExpenseBtnActive: false,
     isPlanBtnActive: false,
   },
@@ -62,6 +63,10 @@ const showNavPage = createReducer(initialState.global.showNavPage, {
 
 const showExpensesPage = createReducer(initialState.global.showExpensesPage, {
   [globalActions.toggleShowExpensesPage]: state => !state,
+});
+
+const showStatsPage = createReducer(initialState.global.showStatsPage, {
+  [globalActions.toggleShowStatsPage]: state => !state,
 });
 
 const isCalculatorOpen = createReducer(initialState.global.isCalculatorOpen, {
@@ -111,6 +116,7 @@ export default combineReducers({
   showLogin,
   showNavPage,
   showExpensesPage,
+  showStatsPage,
   isCalculatorOpen,
   isExpenseBtnActive,
   isPlanBtnActive,

@@ -1,18 +1,37 @@
 .container {
+  width: 100%;
+}
+
+.containerExpenses {
   background-image: url(../../../assets/images/bg4-mobile.svg);
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: initial;
 }
 
+.containerStats {
+  background-image: url(../../../assets/images/statistics-bg_mobile.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: initial;
+}
+
 @media (min-width: 768px) {
-  .container {
+  .containerExpenses {
     background-image: url(../../../assets/images/bg4-tablet.svg);
+  }
+
+  .containerStats {
+    background-image: url(../../../assets/images/statistics-bg_tablet.svg);
   }
 }
 
 @media (min-width: 1240px) {
-  .container {
+  .containerExpenses {
     background-image: url(../../../assets/images/bg4-desktop.svg);
+  }
+
+  .containerStats {
+    background-image: url(../../../assets/images/statistics-bg.svg);
   }
 }
