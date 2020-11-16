@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Calendar from '../../components/Calendar';
+import styles from './Statistics.module.css';
 
 class Statistics extends Component {
   componentDidMount() {
@@ -10,7 +12,11 @@ class Statistics extends Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div className={styles.wrapper}>
+        <Calendar />
+      </div>
+    );
   }
 }
 
