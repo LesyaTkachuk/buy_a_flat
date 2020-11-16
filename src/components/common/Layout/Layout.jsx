@@ -10,7 +10,6 @@ class Layout extends React.Component {
     } else if (showStatsPage) {
       return styles.containerStats;
     } else {
-      console.log('else');
       return styles.container;
     }
   };
