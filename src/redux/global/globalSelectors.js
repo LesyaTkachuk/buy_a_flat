@@ -6,7 +6,7 @@ const getIsAuthFormOpen = state => state.global.isAuthFormOpen;
 
 const getHasGifts = state => state.global.hasGifts;
 
-const getShowNavPage = state => state.global.showNavPage;
+const getShowNavMenu = state => state.global.showNavMenu;
 
 const getIsModalOpen = state => state.global.isModalOpen;
 
@@ -14,7 +14,7 @@ const getShowLoginForm = state => state.global.showLogin;
 
 const getShowExpensesPage = state => state.global.showExpensesPage;
 
-const getShowStatsPage=state=>state.global.showStatsPage;
+const getShowStatsPage = state => state.global.showStatsPage;
 
 const getIsCalculatorOpen = state => state.global.isCalculatorOpen;
 
@@ -31,7 +31,7 @@ export default {
   getHasGifts,
   getShowExpensesPage,
   getShowStatsPage,
-  getShowNavPage,
+  getShowNavMenu,
   getIsModalOpen,
   getShowLoginForm,
   getIsCalculatorOpen,

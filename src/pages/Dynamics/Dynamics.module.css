@@ -1,6 +1,6 @@
 .inner {
-  margin-top: 36px;
-  margin-bottom: 55px;
+  padding-top: 36px;
+  padding-bottom: 55px;
 }
 
 .plan {
@@ -22,7 +22,8 @@
 @media (min-width: 768px) {
   .inner {
     width: 515px;
-    margin: 75px auto;
+    padding: 75px 0;
+    margin: 0 auto;
   }
 
   .flex {
@@ -46,7 +47,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin: 55px auto;
+    margin: 0 auto;
+    padding: 55px 0;
   }
 
   .part {

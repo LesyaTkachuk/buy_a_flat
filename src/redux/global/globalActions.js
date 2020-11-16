@@ -12,7 +12,7 @@ const toggleLogout = createAction('global/toggleLogout');
 
 const toggleVerifyNotif = createAction('global/toggleVerifyNotif');
 
-const toggleShowNavPage = createAction('global/toggleShowNavPage');
+const toggleShowNavMenu = createAction('global/toggleShowNavMenu');
 
 const toggleShowExpensesPage = createAction('global/toggleShowExpensesPage');
 
@@ -34,7 +34,7 @@ export default {
   toggleHasGifts,
   toggleLogout,
   toggleVerifyNotif,
-  toggleShowNavPage,
+  toggleShowNavMenu,
   toggleAuthForm,
   toggleShowExpensesPage,
   toggleShowStatsPage,

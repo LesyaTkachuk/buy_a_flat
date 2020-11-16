@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   max-width: 17.5rem;
   margin: 0 auto;
   min-height: calc(100vh - 3.75rem);

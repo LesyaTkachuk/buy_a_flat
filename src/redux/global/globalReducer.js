@@ -19,7 +19,7 @@ const initialState = {
     isAuthFormOpen: false,
     hasGifts: false,
     showLogin: true,
-    showNavPage: false,
+    showNavMenu: false,
     showExpensesPage: false,
     showStatsPage: false,
     isExpenseBtnActive: false,
@@ -57,8 +57,8 @@ const isAuthFormOpen = createReducer(initialState.global.isAuthFormOpen, {
   [globalActions.toggleAuthForm]: state => !state,
 });
 
-const showNavPage = createReducer(initialState.global.showNavPage, {
-  [globalActions.toggleShowNavPage]: state => !state,
+const showNavMenu = createReducer(initialState.global.showNavMenu, {
+  [globalActions.toggleShowNavMenu]: state => !state,
 });
 
 const showExpensesPage = createReducer(initialState.global.showExpensesPage, {
@@ -114,7 +114,7 @@ export default combineReducers({
   isVerifyNotifOpen,
   hasGifts,
   showLogin,
-  showNavPage,
+  showNavMenu,
   showExpensesPage,
   showStatsPage,
   isCalculatorOpen,

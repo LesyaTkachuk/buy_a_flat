@@ -5,10 +5,10 @@ import Media from 'react-media';
 import LogoutButton from '../LogoutButton';
 import avatar from '../../assets/icons/avatar3.svg';
 import styles from './UserInfo.module.css';
-import { globalSelectors } from '../../redux/global';
+import { globalActions, globalSelectors } from '../../redux/global';
 import { Link } from 'react-router-dom';
 
-function UserInfo({ showNavPage, username, email }) {
+function UserInfo({ showNavMenu, username, email, toggleShowNavMenu }) {
   const cropEmail = email.split('@')[0];
   return (
     <div className={styles.wrapper}>
@@ -16,14 +16,16 @@ function UserInfo({ showNavPage, username, email }) {
       <Media
         query="(max-width: 1239px)"
         render={() =>
-          showNavPage ? (
-            <button className={`${styles.button} ${styles.closeIcon}`}></button>
+          showNavMenu ? (
+            <button
+              className={`${styles.button} ${styles.closeIcon}`}
+              onClick={() => toggleShowNavMenu()}
+            ></button>
           ) : (
-            <Link to="/navigation">
-              <button
-                className={`${styles.button} ${styles.menuIcon}`}
-              ></button>
-            </Link>
+            <button
+              className={`${styles.button} ${styles.menuIcon}`}
+              onClick={() => toggleShowNavMenu()}
+            ></button>
           )
         }
       />
@@ -39,9 +41,13 @@ function UserInfo({ showNavPage, username, email }) {
 }
 
 const mapStateToprops = state => ({
-  showNavPage: globalSelectors.getShowNavPage(state),
+  showNavMenu: globalSelectors.getShowNavMenu(state),
   username: state.auth.user.username,
   email: state.auth.user.email,
 });
 
-export default connect(mapStateToprops)(UserInfo);
+const mapDispatchToProps = {
+  toggleShowNavMenu: globalActions.toggleShowNavMenu,
+};
+
+export default connect(mapStateToprops, mapDispatchToProps)(UserInfo);
