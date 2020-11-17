@@ -2,14 +2,20 @@ import React, { Suspense, Component } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Media from 'react-media';
+import { CSSTransition } from 'react-transition-group';
+
 import PrivateRoute from '../PrivateRoute.jsx';
 import PublicRoute from '../PublicRoute.jsx';
 import routes from '../../routes';
 import Spinner from '../common/Spinner';
 import Modal from '../common/Modal';
-import styles from './Content.module.css';
-import { globalSelectors } from '../../redux/global/index.js';
 import NavMenu from '../NavMenu';
+
+import { globalSelectors } from '../../redux/global/index.js';
+
+import styles from './Content.module.css';
+import fadeTransition from './transitions/fade.module.css';
+import slideTransition from './transitions/slide.module.css';
 
 class Content extends Component {
   render() {
@@ -33,9 +39,18 @@ class Content extends Component {
             <Redirect to="/" />
           </Switch>
         </Suspense>
-        {this.props.showNavMenu && (
+
+        <CSSTransition
+          in={this.props.showNavMenu}
+          timeout={500}
+          classNames={slideTransition}
+          unmountOnExit
+        >
+          <NavMenu />
+        </CSSTransition>
+        {/* {this.props.showNavMenu && (
           <Media query="(max-width: 1239px)" render={() => <NavMenu />} />
-        )}
+        )} */}
       </div>
     );
   }

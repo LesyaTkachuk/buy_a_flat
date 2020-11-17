@@ -29,7 +29,15 @@
 
 .menuIcon {
   background: url('../../assets/icons/menu-icon.svg');
+  transition: all 300ms ease;
+}
+.menuIcon:hover {
+  background: url('../../assets/icons/menu-icon-blue.svg');
 }
 .closeIcon {
   background: url('../../assets/icons/close-icon.svg');
+  transition: all 300ms ease;
+}
+.closeIcon:hover {
+  background: url('../../assets/icons/close-icon-blue.svg');
 }
