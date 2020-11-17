@@ -1,6 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Media from 'react-media';
+import { CSSTransition } from 'react-transition-group';
+import NavMenu from '../../NavMenu';
+import { globalSelectors } from '../../../redux/global/index.js';
 import styles from './Layout.module.css';
+import fadeTransition from './transitions/fade.module.css';
+import slideTransition from './transitions/slide.module.css';
 
 class Layout extends React.Component {
   defineClass = () => {
@@ -15,7 +22,19 @@ class Layout extends React.Component {
   };
   render() {
     const { children } = this.props;
-    return <div className={this.defineClass()}>{children}</div>;
+    return (
+      <div className={this.defineClass()}>
+        {children}
+        <CSSTransition
+          in={this.props.showNavMenu}
+          timeout={500}
+          classNames={fadeTransition}
+          unmountOnExit
+        >
+          <Media query="(max-width: 1239px)" render={() => <NavMenu />} />
+        </CSSTransition>
+      </div>
+    );
   }
 
   // return getShowExpensesPage ? (
@@ -29,4 +48,8 @@ Layout.propTypes = {
   children: PropTypes.node,
 };
 
-export default Layout;
+const mapStateToProps = state => ({
+  showNavMenu: globalSelectors.getShowNavMenu(state),
+});
+
+export default connect(mapStateToProps)(Layout);

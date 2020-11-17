@@ -39,15 +39,6 @@ class Content extends Component {
             <Redirect to="/" />
           </Switch>
         </Suspense>
-
-        <CSSTransition
-          in={this.props.showNavMenu}
-          timeout={500}
-          classNames={slideTransition}
-          unmountOnExit
-        >
-          <NavMenu />
-        </CSSTransition>
         {/* {this.props.showNavMenu && (
           <Media query="(max-width: 1239px)" render={() => <NavMenu />} />
         )} */}

@@ -6,6 +6,11 @@
   border-radius: 8px;
   cursor: pointer;
   background: var(--blue-button-color);
+  transition: all 300ms linear;
+}
+
+.buttonLogout:hover {
+  background: var(--blue-hover-color);
 }
 
 .buttonLogoutTitle {

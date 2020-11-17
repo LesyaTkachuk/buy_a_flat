@@ -1,7 +1,7 @@
 .wrapper {
   position: absolute;
   z-index: 5;
-  top: 0;
+  top: 60px;
   right: 0;
   background-color: #fff;
   box-shadow: 1px 11px 15px 4px rgba(107, 105, 105, 0.4);
@@ -45,6 +45,9 @@
 }
 
 @media (min-width: 768px) {
+  .wrapper {
+    top: 72px;
+  }
   .navMenu {
     /* width: 480px; */
   }
