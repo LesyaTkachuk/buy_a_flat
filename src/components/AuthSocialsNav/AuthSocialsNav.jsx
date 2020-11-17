@@ -10,11 +10,11 @@ function ButtonsWrapper() {
         className={styles.google_btn}
         data-name="Google"
       ></Button>
-      {/* <Button
+      <Button
         label="Sign up with Facebook"
         className={styles.facebook_btn}
         data-name="Facebook"
-      ></Button> */}
+      ></Button>
     </div>
   );
 }
