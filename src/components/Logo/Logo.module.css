@@ -3,16 +3,9 @@
     transform: translateX(-100px);
     opacity: 0.3;
   }
-  80% {
+  100% {
     transform: translateX(0);
     opacity: 1;
-  }
-  81% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }
 .logoWrapper {
