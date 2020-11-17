@@ -18,10 +18,10 @@
 }
 .authButton:focus {
   background-color: var(--orange-color);
-  /* color: #fff; */
+  color: #fff;
 }
 .authButton:hover {
   background-color: var(--blue-hover-color);
   /* transform: scale(1.05); */
-  /* color: #fff; */
+  color: #fff;
 }
