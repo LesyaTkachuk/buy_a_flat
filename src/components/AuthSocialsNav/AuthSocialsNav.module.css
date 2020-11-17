@@ -1,6 +1,6 @@
 .buttons__wrapper {
   width: 13.75rem;
-  min-height: 8.75rem;
+  /* min-height: 8.75rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,13 +9,16 @@
 .google_btn {
   background: url('../../assets/icons/google.svg') no-repeat 20px 16px,
     rgba(255, 108, 0, 0.1);
-  /* background: rgba(255, 108, 0, 0.1); */
+  transition: all 300ms ease;
+}
+
+.google_btn:hover {
+  background-color: rgba(206, 108, 38, 0.3);
 }
 
 .facebook_btn {
   background: url('../../assets/icons/facebook.svg') no-repeat 20px 16px,
     var(--blue-button-color);
-  /* background: var(--blue-button-color); */
 }
 
 @media (min-width: 1240px) {

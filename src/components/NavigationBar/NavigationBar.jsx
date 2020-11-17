@@ -19,7 +19,7 @@ class NavigationBar extends Component {
                     to={path}
                     exact={exact}
                     className={styles.navigationLink}
-                    activeClassName={styles.activenavigationLink}
+                    activeClassName={styles.activeNavigationLink}
                   >
                     {showInMenu}
                   </NavLink>
@@ -34,7 +34,7 @@ class NavigationBar extends Component {
                     to={path}
                     exact={exact}
                     className={styles.navigationLink}
-                    activeClassName={styles.activenavigationLink}
+                    activeClassName={styles.activeNavigationLink}
                   >
                     {showInMenu}
                   </NavLink>

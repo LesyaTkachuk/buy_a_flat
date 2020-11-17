@@ -1,8 +1,26 @@
+@keyframes logoMove {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0.3;
+  }
+  80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  81% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .logoWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 6.75rem;
+  animation: logoMove 2s ease-in-out;
 }
 
 .logoTitle {

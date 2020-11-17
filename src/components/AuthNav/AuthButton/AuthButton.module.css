@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6.25rem;
+  width: 130px;
   height: 2.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -14,8 +14,14 @@
   text-align: center;
   color: var(--black-font-color);
   background-color: var(--blue-button-color);
+  transition: all 300ms linear;
 }
 .authButton:focus {
   background-color: var(--orange-color);
-  color: #fff;
+  /* color: #fff; */
+}
+.authButton:hover {
+  background-color: var(--blue-hover-color);
+  /* transform: scale(1.05); */
+  /* color: #fff; */
 }
