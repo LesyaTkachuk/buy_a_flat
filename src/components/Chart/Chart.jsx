@@ -98,9 +98,9 @@ class MyChart extends Component {
     if (this.state.instance) this.state.instance.destroy();
     const { media, data } = this.props;
 
-    const incomeAmount = data?.map(item => item.incomeAmount);
-    const expenses = data?.map(item => item.expenses);
-    const savings = data?.map(item => item.savings);
+    const incomeAmount = data?.reverse().map(item => item.incomeAmount);
+    const expenses = data?.reverse().map(item => item.expenses);
+    const savings = data?.reverse().map(item => item.savings);
     const labels = data?.map(item => MONTHS[item.month - 1]);
 
     const instance = new Chart(ctx, {
