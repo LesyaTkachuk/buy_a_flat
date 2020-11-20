@@ -1,6 +1,6 @@
 .buttons__wrapper {
   width: 13.75rem;
-  /* min-height: 8.75rem; */
+  min-height: 8.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

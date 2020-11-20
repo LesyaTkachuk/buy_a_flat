@@ -10,7 +10,6 @@
 }
 .buttonLogout:hover {
   background-color: var(--blue-hover-color);
-  transform: scale(1.05);
 }
 
 .buttonLogoutTitle {

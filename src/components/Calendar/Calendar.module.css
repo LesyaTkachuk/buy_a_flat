@@ -1,14 +1,4 @@
-/* @keyframes move {
-  from {
-    transform: translateX(240px);
-  }
-  to {
-    transform: translateX(0);
-  }
-} */
-
 .wrapper {
   width: 260px;
   margin-left: auto;
-  /* animation: move 500ms linear; */
 }
