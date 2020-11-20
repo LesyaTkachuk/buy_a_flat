@@ -15,6 +15,12 @@
 @media (min-width: 1240px) {
   .wrapper {
     min-height: calc(100vh-72px);
+    width: 670px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
     width: 770px;
     padding: 44px 0;
   }
