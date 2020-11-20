@@ -4,6 +4,10 @@ import { globalActions, globalSelectors } from '../../../redux/global';
 import { authSelectors, authActions } from '../../../redux/auth';
 import { familySelectors, familyActions } from '../../../redux/family';
 import styles from './Modal.module.css';
+import {
+  transactionsActions,
+  transactionsSelectors,
+} from '../../../redux/transactions';
 
 class Modal extends Component {
   componentDidMount() {
@@ -28,8 +32,10 @@ class Modal extends Component {
     const {
       authError,
       familyError,
+      transactionError,
       unsetAuthError,
       unsetFamilyError,
+      unsetTransactionsError,
       isAuthFormOpen,
       isLogoutOpen,
       isVerifyNotifOpen,
@@ -46,6 +52,7 @@ class Modal extends Component {
     isVerifyNotifOpen && removeNotif();
     authError && unsetAuthError();
     familyError && unsetFamilyError();
+    transactionError && unsetTransactionsError();
     hasGifts && unsetGiftsUnpacked();
     hasGifts && toggleHasGifts();
   };
@@ -60,8 +67,9 @@ class Modal extends Component {
 }
 
 const mapStateToProps = state => ({
-  authError: authSelectors.getErrorCode(state),
-  familyError: familySelectors.getErrorCode(state),
+  authError: authSelectors.getErrorMessage(state),
+  familyError: familySelectors.getErrorMessage(state),
+  transactionError: transactionsSelectors.getError(state),
   isLogoutOpen: globalSelectors.getIsLogoutOpen(state),
   isAuthFormOpen: globalSelectors.getIsAuthFormOpen(state),
   isGiftsNotifOpen: globalSelectors.getHasGifts(state),
@@ -72,6 +80,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   unsetAuthError: authActions.unsetError,
   unsetFamilyError: familyActions.unsetError,
+  unsetTransactionsError: transactionsActions.unsetError,
   removeAuthForm: globalActions.toggleAuthForm,
   removeLogout: globalActions.toggleLogout,
   removeNotif: globalActions.toggleVerifyNotif,

@@ -29,9 +29,8 @@ const register = credentials => (dispatch, getState) => {
       dispatch(globalActions.toggleVerifyNotif());
     })
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(authActions.registerError({ code, message }));
+      dispatch(authActions.registerError(message));
     });
 };
 
@@ -46,9 +45,8 @@ const login = credentials => dispatch => {
       data.user.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(authActions.loginError({ code, message }));
+      dispatch(authActions.loginError(message));
     });
 };
 
@@ -71,9 +69,8 @@ const getCurrentUser = () => (dispatch, getState) => {
       data.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(authActions.getCurrentUserError({ code, message }));
+      dispatch(authActions.getCurrentUserError(message));
       dispatch(authActions.clearToken());
     });
 };
@@ -88,22 +85,10 @@ const logout = () => dispatch => {
       dispatch(authActions.logoutSuccess());
     })
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(authActions.logoutError({ code, message }));
+      dispatch(authActions.logoutError(message));
       dispatch(authActions.clearToken());
     });
-};
-
-const googleAuth = () => dispatch => {
-  dispatch(authActions.googleAuthRequest());
-
-  axios.get('/auth/google').then(({ data }) => {
-    dispatch(authActions.googleAuthSuccess());
-
-    token.set(data.token);
-    dispatch(getCurrentUser());
-  });
 };
 
 export default {
@@ -111,5 +96,4 @@ export default {
   login,
   logout,
   getCurrentUser,
-  googleAuth,
 };

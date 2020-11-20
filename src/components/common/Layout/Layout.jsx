@@ -1,8 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Error from '../Error';
+import Modal from '../Modal';
+import Logout from '../../Logout';
+import Spinner from '../Spinner';
 import styles from './Layout.module.css';
 
 class Layout extends React.Component {
+  componentDidMount() {
+    this.props.getCurrentUser();
+  }
+
   defineClass = () => {
     const { showExpensesPage, showStatsPage } = this.props;
     if (showExpensesPage) {
@@ -14,19 +21,37 @@ class Layout extends React.Component {
     }
   };
   render() {
-    const { children } = this.props;
-    return <div className={this.defineClass()}>{children}</div>;
+    const {
+      children,
+      familyError,
+      authError,
+      transactionError,
+      isLogoutOpen,
+      isFamilyLoading,
+      isAuthLoading,
+      isTransactionLoading,
+    } = this.props;
+    return (
+      <div className={this.defineClass()}>
+        {children}
+        {(isFamilyLoading || isAuthLoading || isTransactionLoading) && (
+          <Modal>
+            <Spinner />
+          </Modal>
+        )}
+        {(authError || familyError || transactionError) && (
+          <Modal>
+            <Error />
+          </Modal>
+        )}
+        {isLogoutOpen && (
+          <Modal>
+            <Logout />
+          </Modal>
+        )}
+      </div>
+    );
   }
-
-  // return getShowExpensesPage ? (
-  //   <div className={styles.containerExpense}>{children}</div>
-  // ) : (
-  //   <div> {children}</div>
-  // );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node,
-};
 
 export default Layout;

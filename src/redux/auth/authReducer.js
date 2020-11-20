@@ -12,10 +12,7 @@ const initialState = {
     },
     token: '',
     isLoading: false,
-    error: {
-      code: '',
-      message: '',
-    },
+    error: '',
   },
 };
 

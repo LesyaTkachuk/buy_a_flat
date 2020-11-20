@@ -14,26 +14,6 @@ const getCurrentFamilyRequest = createAction('family/getCurrentRequest');
 const getCurrentFamilySuccess = createAction('family/getCurrentSuccess');
 const getCurrentFamilyError = createAction('family/getCurrentError');
 
-const getMonthsBalanceRequest = createAction('family/getMonthsBalanceRequest');
-const getMonthsBalanceSuccess = createAction('family/getMonthsBalanceSuccess');
-const getMonthsBalanceError = createAction('family/getMonthsBalanceError');
-
-const getCategoriesRequest = createAction('transactions/getCategoriesRequest');
-const getCategoriesSuccess = createAction('transactions/getCategoriesSuccess');
-const getCategoriesError = createAction('transactions/getCategoriesError');
-
-const createTransactionRequest = createAction('transactions/createRequest');
-const createTransactionSuccess = createAction('transactions/createSuccess');
-const createTransactionError = createAction('transactions/createError');
-
-const setTransaction = createAction(
-  'family/transactions/setTransactionSuccess',
-);
-
-const setTransactionAmount = createAction(
-  'family/transactions/setAmountSuccess',
-);
-
 const getChartDataRequest = createAction('family/getChartDataRequest');
 const getChartDataSuccess = createAction('family/getChartDataSuccess');
 const getChartDataError = createAction('family/getChartDataError');
@@ -69,17 +49,6 @@ export default {
   getCurrentFamilyRequest,
   getCurrentFamilySuccess,
   getCurrentFamilyError,
-  getCategoriesRequest,
-  getCategoriesSuccess,
-  getCategoriesError,
-  getMonthsBalanceRequest,
-  getMonthsBalanceSuccess,
-  getMonthsBalanceError,
-  createTransactionRequest,
-  createTransactionSuccess,
-  createTransactionError,
-  setTransaction,
-  setTransactionAmount,
   getChartDataRequest,
   getChartDataSuccess,
   getChartDataError,
