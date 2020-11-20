@@ -18,9 +18,7 @@
 }
 .authButton:focus {
   background-color: var(--orange-color);
-  color: #fff;
 }
 .authButton:hover {
   background-color: var(--blue-hover-color);
-  color: #fff;
 }

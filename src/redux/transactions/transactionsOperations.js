@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { transactionsActions } from './';
 
 axios.defaults.baseURL = 'https://buy-a-flat.herokuapp.com';
 
@@ -60,7 +61,7 @@ const updateTransaction = credentials => dispatch => {
   transactionsActions.updateTransactionRequest();
 
   axios
-    .put('/api/transactions/${transactionId}', credentials)
+    .put('/api/transactions/', credentials)
     .then(({ data }) =>
       dispatch(
         transactionsActions.updateTransactionSuccess(data.updatedFields),
@@ -82,7 +83,7 @@ const updateTransaction = credentials => dispatch => {
 
 const deleteTransaction = () => dispatch => {
   axios
-    .delete('/api/transactions/${transactionId}')
+    .delete('/api/transactions/')
     .then(({ data }) =>
       dispatch(transactionsActions.deleteTransactionSuccess()),
     )

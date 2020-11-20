@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducer';
 import globalReducer from './global/globalReducer';
 import familyReducer from './family/familyReducer';
-import transactionsReducer from './transactions/transactionsReducers';
+import transactionsReducer from './transactions/transactionsReducer';
 
 const authPersistConfig = {
   key: 'auth',

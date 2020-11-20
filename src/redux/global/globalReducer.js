@@ -1,5 +1,5 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { authActions } from '../auth';
+import authActions from '../auth/authActions';
 import globalActions from './globalActions';
 
 const initialState = {

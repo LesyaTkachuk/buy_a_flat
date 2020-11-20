@@ -4,22 +4,20 @@ import styles from './Error.module.css';
 class Error extends Component {
   handleClick() {
     const {
-      authErrorCode,
-      familyErrorCode,
+      authError,
+      familyError,
+      transactionError,
       unsetAuthError,
       unsetFamilyError,
+      unsetTransactionsError,
     } = this.props;
-    authErrorCode && unsetAuthError();
-    familyErrorCode && unsetFamilyError();
+    authError && unsetAuthError();
+    familyError && unsetFamilyError();
+    transactionError && unsetTransactionsError();
   }
 
   render() {
-    const {
-      authErrorCode,
-      authErrorMessage,
-      familyErrorCode,
-      familyErrorMessage,
-    } = this.props;
+    const { authError, familyError, transactionError } = this.props;
 
     return (
       <div className={styles.container}>
@@ -29,10 +27,9 @@ class Error extends Component {
         ></button>
         <div className={styles.errorWrapper}>
           <h2 className={styles.errorTitle}>Oops, an error occurred</h2>
-          {/* <p className={styles.errorText}>{authErrorCode || familyErrorCode}</p> */}
-          {(familyErrorMessage || authErrorMessage) && (
+          {(familyError || authError || transactionError) && (
             <p className={styles.errorText}>
-              {authErrorMessage || familyErrorMessage}
+              {authError || familyError || transactionError}
             </p>
           )}
         </div>

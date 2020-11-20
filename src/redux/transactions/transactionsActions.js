@@ -26,13 +26,11 @@ const getMonthlyReportRequest = createAction('transactions/getMonthlyRequest');
 const getMonthlyReportSuccess = createAction('transactions/getMonthlySuccess');
 const getMonthlyReportError = createAction('transactions/getMonthlyError');
 
-const setTransaction = createAction(
-  'family/transactions/setTransactionSuccess',
-);
+const setTransaction = createAction('transactions/setTransactionSuccess');
 
-const setTransactionAmount = createAction(
-  'family/transactions/setAmountSuccess',
-);
+const setTransactionAmount = createAction('transactions/setAmountSuccess');
+
+const unsetError = createAction('transactions/unsetError');
 
 export default {
   getCategoriesSuccess,
@@ -46,7 +44,6 @@ export default {
   updateTransactionRequest,
   updateTransactionSuccess,
   updateTransactionError,
-  deleteTransactionRequest,
   deleteTransactionSuccess,
   deleteTransactionError,
   getDailyRecordsRequest,
@@ -57,4 +54,5 @@ export default {
   getMonthlyReportError,
   setTransaction,
   setTransactionAmount,
+  unsetError,
 };

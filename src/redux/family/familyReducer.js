@@ -1,5 +1,5 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { familyActions } from './';
+import familyActions from './familyActions';
 import { authActions } from '../auth';
 
 const initialState = {
