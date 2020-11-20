@@ -10,9 +10,8 @@ const addFamily = credentials => dispatch => {
     .post('/api/families', credentials)
     .then(({ data }) => dispatch(familyActions.addFamilySuccess(data)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.addFamilyError({ code, message }));
+      dispatch(familyActions.addFamilyError(message));
     });
 };
 
@@ -36,50 +35,8 @@ const getCurrentFamily = () => dispatch => {
     .get(`/api/families/current`)
     .then(({ data }) => dispatch(familyActions.getCurrentFamilySuccess(data)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.getCurrentFamilyError({ code, message }));
-    });
-};
-
-const getTransactions = () => dispatch => {
-  // familyActions.getCategoriesRequest();
-
-  axios
-    .get('/api/transactions/categories')
-    .then(({ data }) =>
-      dispatch(familyActions.getCategoriesSuccess(data.transactionCategories)),
-    )
-    .catch(error => {
-      const code = error.message;
-      const message = error.response?.data?.message;
-      dispatch(familyActions.getCategoriesError({ code, message }));
-    });
-};
-
-const getMonthBalance = () => dispatch => {
-  axios
-    .get('/api/transactions/month/current')
-    .then(({ data }) =>
-      dispatch(familyActions.getMonthsBalanceSuccess(data.monthBalance)),
-    )
-    .catch(error => {
-      const code = error.message;
-      const message = error.response?.data?.message;
-      dispatch(familyActions.getMonthsBalanceError({ code, message }));
-    });
-};
-
-const createTransaction = credentials => dispatch => {
-  familyActions.createTransactionRequest();
-
-  axios
-    .post('/api/transactions', credentials)
-    .then(({ data }) => dispatch(familyActions.createTransactionSuccess(data)))
-    .catch(error => {
-      const code = error.message;
-      const message = error.response?.data?.message;
-      dispatch(familyActions.createTransactionError({ code, message }));
+      dispatch(familyActions.getCurrentFamilyError(message));
     });
 };
 
@@ -94,9 +51,8 @@ const getChartData = () => (dispatch, getState) => {
     .get('/api/transactions/stats/annual', { params: chartDate })
     .then(({ data }) => dispatch(familyActions.getChartDataSuccess(data)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.getChartDataError({ code, message }));
+      dispatch(familyActions.getChartDataError(message));
     });
 };
 
@@ -110,9 +66,8 @@ const getMonthsList = () => dispatch => {
     .get('/api/transactions/stats/annual', { params: { month, year } })
     .then(({ data }) => dispatch(familyActions.getMonthsListSuccess(data)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.getMonthsListError({ code, message }));
+      dispatch(familyActions.getMonthsListError(message));
     });
 };
 
@@ -123,9 +78,8 @@ const getFinanceData = () => dispatch => {
     .get('/api/families/stats/flat')
     .then(({ data }) => dispatch(familyActions.getFinanceDataSuccess(data)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.getFinanceDataError({ code, message }));
+      dispatch(familyActions.getFinanceDataError(message));
     });
 };
 
@@ -134,9 +88,8 @@ const updateGifts = () => dispatch => {
     .put('api/gifts/unpack')
     .then(({ data }) => dispatch(familyActions.updateGiftsSuccess(data.gifts)))
     .catch(error => {
-      const code = error.message;
       const message = error.response?.data?.message;
-      dispatch(familyActions.updateGiftsError({ code, message }));
+      dispatch(familyActions.updateGiftsError(message));
     });
 };
 
@@ -144,9 +97,6 @@ export default {
   addFamily,
   updateFamily,
   getCurrentFamily,
-  getMonthBalance,
-  getTransactions,
-  createTransaction,
   getChartData,
   getMonthsList,
   getFinanceData,

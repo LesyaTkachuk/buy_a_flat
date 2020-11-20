@@ -1,6 +1,6 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import familyActions from './familyActions';
-import authActions from '../auth/authActions';
+import { familyActions } from './';
+import { authActions } from '../auth';
 
 const initialState = {
   family: {
@@ -15,15 +15,6 @@ const initialState = {
 
     monthsLeft: 0,
     yearsLeft: 0,
-
-    monthBalance: 0,
-    transactionCategories: [],
-
-    transaction: {
-      category: '',
-      amount: 0,
-      comment: '',
-    },
 
     chart: null,
     monthlyStat: null,
@@ -44,10 +35,7 @@ const initialState = {
     },
 
     isLoading: false,
-    error: {
-      code: '',
-      message: '',
-    },
+    error: '',
   },
 };
 
@@ -93,45 +81,14 @@ const yearsLeft = createReducer(initialState.family.yearsLeft, {
   [authActions.logoutSuccess]: () => initialState.family.yearsLeft,
 });
 
-const monthBalance = createReducer(initialState.family.monthBalance, {
-  [familyActions.getMonthsBalanceSuccess]: (_, { payload }) => payload,
-  [familyActions.createTransactionSuccess]: (_, { payload }) =>
-    payload.monthBalance,
-  [authActions.logoutSuccess]: () => initialState.family.monthBalance,
-});
-
-const transactionCategories = createReducer(
-  initialState.family.transactionCategories,
-  {
-    [familyActions.getCategoriesSuccess]: (_, { payload }) => payload,
-    [authActions.logoutSuccess]: () =>
-      initialState.family.transactionCategories,
-  },
-);
-
-const transaction = createReducer(initialState.family.transaction, {
-  [familyActions.setTransaction]: (state, { payload }) => ({
-    ...state,
-    ...payload,
-  }),
-  [familyActions.setTransactionAmount]: (state, { payload }) => ({
-    ...state,
-    amount: payload,
-  }),
-  [familyActions.createTransactionSuccess]: (state, { payload }) => {
-    const { amount, category, comment } = payload;
-    return { ...state, amount, category, comment };
-  },
-  [authActions.logoutSuccess]: () => initialState.family.transaction,
-});
-
 const chart = createReducer(initialState.family.chart, {
-  [familyActions.getChartDataSuccess]: (_, { payload }) => payload.transes,
+  [familyActions.getChartDataSuccess]: (_, { payload }) => payload.annualReport,
   [authActions.logoutSuccess]: () => initialState.family.chart,
 });
 
 const monthlyStat = createReducer(initialState.family.monthlyStat, {
-  [familyActions.getMonthsListSuccess]: (_, { payload }) => payload.transes,
+  [familyActions.getMonthsListSuccess]: (_, { payload }) =>
+    payload.annualReport,
   [authActions.logoutSuccess]: () => initialState.family.monthlyStat,
 });
 
@@ -202,9 +159,6 @@ const error = createReducer(initialState.family.error, {
 
 export default combineReducers({
   info,
-  monthBalance,
-  transactionCategories,
-  transaction,
   chart,
   monthlyStat,
   finance,
