@@ -13,9 +13,10 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--black-font-color);
+  transition: all 200ms ease;
 }
 
-.activenavigationLink {
+.activeNavigationLink {
   color: var(--orange-color);
 }
 

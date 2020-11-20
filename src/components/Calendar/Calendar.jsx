@@ -30,6 +30,7 @@ class Calendar extends Component {
             maxDate={this.state.date}
             locale="ru"
             small="true"
+            // startMode="month"
             //   value="2019-12-01"
             className="my-custom-datepicker-component"
           />
