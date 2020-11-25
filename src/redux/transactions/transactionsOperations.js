@@ -7,7 +7,9 @@ const getCategories = () => dispatch => {
   axios
     .get('api/transactions/categories')
     .then(({ data }) =>
-      dispatch(transactionsActions.getCategoriesSuccess(data)),
+      dispatch(
+        transactionsActions.getCategoriesSuccess(data.transactionCategories),
+      ),
     )
     .catch(error => {
       const message = error.response?.data?.message;
@@ -15,15 +17,17 @@ const getCategories = () => dispatch => {
     });
 }; // get api/transactions/categories response [ { name, icon}]
 
-const getMonthData = () => dispatch => {
-  transactionsActions.getMonthDataRequest();
+const getMonthsData = () => dispatch => {
+  transactionsActions.getMonthsDataRequest();
 
   axios
     .get('/api/transactions/month/current')
-    .then(({ data }) => dispatch(transactionsActions.getMonthDataSuccess(data)))
+    .then(({ data }) =>
+      dispatch(transactionsActions.getMonthsDataSuccess(data)),
+    )
     .catch(error => {
       const message = error.response?.data?.message;
-      dispatch(transactionsActions.getMonthDataError(message));
+      dispatch(transactionsActions.getMonthsDataError(message));
     });
 }; // responce {
 //         monthBalance,
@@ -145,7 +149,7 @@ const getMonthlyTransactions = () => dispatch => {
 
 export default {
   getCategories,
-  getMonthData,
+  getMonthsData,
   createTransaction,
   updateTransaction,
   deleteTransaction,

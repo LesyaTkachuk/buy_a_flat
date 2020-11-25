@@ -1,25 +1,25 @@
 import { connect } from 'react-redux';
 import {
-  familyActions,
-  familyOperations,
-  familySelectors,
-} from '../../redux/family';
+  transactionsActions,
+  transactionsOperations,
+  transactionsSelectors,
+} from '../../redux/transactions';
 import { globalActions, globalSelectors } from '../../redux/global';
 import ExpensesForm from './ExpenseForm';
 
 const mapStateToProps = state => ({
-  monthBalance: familySelectors.getMonthBalance(state),
-  transaction: familySelectors.getTransaction(state),
-  transactionCategories: familySelectors.getTransactionCategories(state),
-  transactionAmount: familySelectors.getTransactionAmount(state),
+  monthBalance: transactionsSelectors.getMonthBalance(state),
+  transaction: transactionsSelectors.getTransaction(state),
+  transactionCategories: transactionsSelectors.getTransactionCategories(state),
+  transactionAmount: transactionsSelectors.getTransactionAmount(state),
   isCalculatorOpen: globalSelectors.getIsCalculatorOpen(state),
   isExpenseBtnActive: globalSelectors.getIsExpenseBtnActive(state),
 });
 
 const mapDispatchToProps = {
-  getMonthBalance: familyOperations.getMonthBalance,
-  getCategories: familyOperations.getTransactions,
-  setTransaction: familyActions.setTransaction,
+  getMonthBalance: transactionsOperations.getMonthsData,
+  getCategories: transactionsOperations.getCategories,
+  setTransaction: transactionsActions.setTransaction,
   setCalculatorOpen: globalActions.toggleCalculator,
   setExpenseBtnActive: globalActions.toggleExpenseBtnActive,
 };

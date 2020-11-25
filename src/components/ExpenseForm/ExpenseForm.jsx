@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Calculator from '../Calculator';
 import styles from './ExpenseForm.module.css';
+// import { apiUrl } from '../../services/api';
+// import Select from 'react-select';
+// import EdiExpense from '../EditExpense';
 
 class ExpensesForm extends Component {
   state = {
@@ -77,12 +80,47 @@ class ExpensesForm extends Component {
       monthBalance,
     } = this.props;
 
+    // const options = [];
+
+    // transactionCategories.map(category =>
+    //   options.push({
+    //     value: category.name,
+    //     label: category.name,
+    //     icon: category.icon,
+    //   }),
+    // );
+
+    // const customSingleValue = ({ data }) => (
+    //   <div className="input-select">
+    //     <div className="input-select__single-value">
+    //       {data.icon && (
+    //         <span
+    //           className="input-select__icon"
+    //           style={{
+    //             background: `url(${apiUrl}${data.icon})`,
+    //             width: `18px`,
+    //             height: `18px`,
+    //             display: `block`,
+    //             content: `''`,
+    //             position: `absolute`,
+    //           }}
+    //         >
+    //           {/* {`${apiUrl}
+    //           ${data.icon}`} */}
+    //         </span>
+    //       )}
+    //       <span style={{ paddingLeft: `24px` }}>{data.label}</span>
+    //     </div>
+    //   </div>
+    // );
+
     return (
       <div className={styles.formContainer}>
+        {/* <h2 className={styles.title}>Внесите новые расходы:</h2> */}
         <form className={styles.form}>
           <div className={styles.formItem}>
             <label className={styles.formLabel} htmlFor="monthBalance">
-              Сумма на счету
+              Остаток средств
             </label>
             <input
               className={styles.formInput}
@@ -98,7 +136,7 @@ class ExpensesForm extends Component {
           </div>
           <div className={styles.formItem}>
             <label className={styles.formLabel} htmlFor="comment">
-              Комментарий
+              Статья расходов
             </label>
             <input
               className={styles.formInput}
@@ -112,8 +150,48 @@ class ExpensesForm extends Component {
           </div>
           <div className={styles.formItem}>
             <label className={styles.formLabel} htmlFor="category">
-              На категорию
+              Категория
             </label>
+            {/* <input
+              // type="text"
+              name="category"
+              // list="categories"
+              placeholder="Выберите категорию..."
+              className={styles.formInput}
+              value={transaction.category}
+              onChange={this.handleInput}
+              // onClick={}
+            />
+            <ul
+              className={styles.categoryList}
+              name="categories"
+              id="categories"
+              data-limit="40"
+              value={transaction.category}
+              onChange={this.handleInput}
+            >
+              {/* <li className={styles.categorySelect}> Выберите категорию...</li>  }
+              {transactionCategories &&
+                transactionCategories.map(category => (
+                  <li
+                    className={styles.category}
+                    key={category.name}
+                    value={category.name}
+                    style={{
+                      position: `relative`,
+                      backgroundImage: `url(${apiUrl}${category.icon})`,
+                      top: `12px`,
+                      left: `12px`,
+                      // width: `18px`,
+                      // height: `18px`,
+                      backgroundRepeat: `no-repeat`,
+                    }}
+                  >
+                    {category.name}
+                  </li>
+                ))}
+            </ul> */}
+
             <select
               className={styles.formInput}
               name="category"
@@ -125,11 +203,22 @@ class ExpensesForm extends Component {
               <option value="select">Выберите категорию...</option>
               {transactionCategories &&
                 transactionCategories.map(category => (
-                  <option key={category} value={category}>
-                    {category}
+                  <option
+                    className={styles.option}
+                    key={category.name}
+                    value={category.name}
+                  >
+                    {category.name}
                   </option>
                 ))}
             </select>
+
+            {/* <Select
+              className={styles.formInput}
+              placeholder="Выберите категорию..."
+              options={options}
+              сomponents={{ SingleValue: customSingleValue, apiUrl: apiUrl }}
+            /> */}
           </div>
           <div className={styles.formItem}>
             <label className={styles.formLabel} htmlFor="amount">
@@ -164,6 +253,9 @@ class ExpensesForm extends Component {
         >
           Раcсчитать
         </button>
+        {/* <div>
+          <EdiExpense />
+        </div> */}
       </div>
     );
   }
