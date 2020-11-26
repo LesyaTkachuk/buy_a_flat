@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
 import {
-  transactionsActions,
-  transactionsOperations,
-  transactionsSelectors,
-} from '../../redux/transactions';
+  familyActions,
+  familyOperations,
+  familySelectors,
+} from '../../redux/family';
 import { globalActions, globalSelectors } from '../../redux/global';
 import styles from './PrognosisBuy.module.css';
 import { Link } from 'react-router-dom';
@@ -144,18 +144,18 @@ class PrognosisBuy extends Component {
 
 const mapStateToProps = state => ({
   familyId: authSelectors.getFamilyId(state),
-  family: transactionsSelectors.getFamilyInfo(state),
-  monthsLeft: transactionsSelectors.getMonthsLeft(state),
-  yearsLeft: transactionsSelectors.getYearsLeft(state),
+  family: familySelectors.getFamilyInfo(state),
+  monthsLeft: familySelectors.getMonthsLeft(state),
+  yearsLeft: familySelectors.getYearsLeft(state),
   isPlanButtonActive: globalSelectors.getIsPlanBtnActive(state),
 });
 
 const mapDispatchToProps = {
-  addFamily: transactionsOperations.addFamily,
-  updateFamily: transactionsOperations.updateFamily,
+  addFamily: familyOperations.addFamily,
+  updateFamily: familyOperations.updateFamily,
   getCurrentUser: authOperations.getCurrentUser,
-  countMonthsLeft: transactionsActions.countMonthsLeft,
-  countYearsLeft: transactionsActions.countYearsLeft,
+  countMonthsLeft: familyActions.countMonthsLeft,
+  countYearsLeft: familyActions.countYearsLeft,
   togglePlanBtnActive: globalActions.togglePlanBtnActive,
 };
 
