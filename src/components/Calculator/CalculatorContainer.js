@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { familyActions } from '../../redux/family';
+import { transactionsActions } from '../../redux/transactions';
 import { globalActions } from '../../redux/global';
 import Calculator from './Calculator';
 
 const mapDispatchToProps = {
-  setTransactionAmount: familyActions.setTransactionAmount,
+  setTransactionAmount: transactionsActions.setTransactionAmount,
   closeCalculator: globalActions.toggleCalculator,
 };
 

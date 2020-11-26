@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { familyOperations, familySelectors } from '../../redux/family';
+import {
+  transactionsOperations,
+  transactionsSelectors,
+} from '../../redux/transactions';
+import { familySelectors } from '../../redux/family';
 import styles from './PrognosisExpense.module.css';
 import { globalActions, globalSelectors } from '../../redux/global';
 
 const PrognosisExpense = ({
   transaction,
+  transactionAmount,
   info,
   createTransaction,
   setExpenseBtnActive,
@@ -20,8 +25,11 @@ const PrognosisExpense = ({
     (monthBalance * (100 - info.incomePercentageToSavings)) / 100;
   const dailySum = available / daysToMonthEnd;
 
-  const dailyLimit = (dailySum - Number(transaction.amount)).toFixed(2);
-  const monthLimit = (available - Number(transaction.amount)).toFixed(2);
+  const dailyLimit = (dailySum - Number(transactionAmount)).toFixed(2);
+  const monthLimit = (available - Number(transactionAmount)).toFixed(2);
+
+  console.log(transactionAmount);
+  console.log(monthBalance);
 
   const handleClick = () => {
     createTransaction(transaction);
@@ -52,14 +60,15 @@ const PrognosisExpense = ({
 };
 
 const mapStateToProps = state => ({
-  monthBalance: familySelectors.getMonthBalance(state),
-  transaction: familySelectors.getTransaction(state),
+  monthBalance: transactionsSelectors.getMonthBalance(state),
+  transactionAmount: transactionsSelectors.getTransactionAmount(state),
+  transaction: transactionsSelectors.getTransaction(state),
   info: familySelectors.getFamilyInfo(state),
   isExpenseBtnActive: globalSelectors.getIsExpenseBtnActive(state),
 });
 
 const mapDispatchToProps = {
-  createTransaction: familyOperations.createTransaction,
+  createTransaction: transactionsOperations.createTransaction,
   setExpenseBtnActive: globalActions.toggleExpenseBtnActive,
 };
 

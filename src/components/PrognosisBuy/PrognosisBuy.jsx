@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
 import {
+  familyActions,
   familyOperations,
   familySelectors,
-  familyActions,
 } from '../../redux/family';
 import { globalActions, globalSelectors } from '../../redux/global';
 import styles from './PrognosisBuy.module.css';
