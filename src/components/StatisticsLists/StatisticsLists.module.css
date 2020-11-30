@@ -1,0 +1,44 @@
+.btnTab {
+  background-color: #fff;
+  cursor: pointer;
+  padding: 18px 12px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 8px 8px 0px 0px;
+  border: 1px solid rgba(24, 25, 31, 0.03);
+}
+
+.active {
+  background-color: rgba(24, 25, 31, 0.03);
+}
+
+.btnTab:hover {
+  background-color: rgba(24, 25, 31, 0.06);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 770px;
+  height: 56px;
+  padding: 18px 12px;
+}
+
+td,
+th {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.36);
+  background: rgba(24, 25, 31, 0.03);
+}
+
+.btnBlock {
+  display: inline-block;
+}
+
+.btnIco {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-left: 25px;
+}
