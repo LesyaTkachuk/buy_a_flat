@@ -98,19 +98,15 @@ class StatisticsLists extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClickOn = this.handleClickOn.bind(this);
-    this.handleClickOff = this.handleClickOff.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
 
     this.state = { activeTab: true };
   }
 
-  handleClickOff = () => {
-    this.setState({ activeTab: false });
-  };
-
-  handleClickOn = () => {
-    this.setState({ activeTab: true });
-  };
+  toggleClass() {
+    const currentState = this.state.activeTab;
+    this.setState({ activeTab: !currentState });
+  }
 
   render() {
     let activeTab = this.state.activeTab;
@@ -118,7 +114,7 @@ class StatisticsLists extends Component {
       <div>
         <div>
           <button
-            onClick={this.handleClickOn}
+            onClick={this.toggleClass}
             className={
               !activeTab ? styles.btnTab : styles.btnTab + ' ' + styles.active
             }
@@ -126,7 +122,7 @@ class StatisticsLists extends Component {
             {tabs[0]}
           </button>
           <button
-            onClick={this.handleClickOff}
+            onClick={this.toggleClass}
             className={
               activeTab ? styles.btnTab : styles.btnTab + ' ' + styles.active
             }
