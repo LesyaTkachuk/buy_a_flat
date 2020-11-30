@@ -5,8 +5,9 @@ import globalActions from './globalActions';
 const initialState = {
   global: {
     currentDate: {
-      currentMonth: 0,
-      currentYear: 0,
+      date: new Date().getDate(),
+      month: new Date().getMonth() + 1,
+      year: new Date().getFullYear(),
     },
     chartDate: {
       month: new Date().getMonth() + 1,
@@ -86,11 +87,11 @@ const isPlanBtnActive = createReducer(initialState.global.isPlanBtnActive, {
 const currentDate = createReducer(initialState.global.currentDate, {
   [globalActions.currentYear]: (state, { payload }) => ({
     ...state,
-    currentYear: payload,
+    year: payload,
   }),
   [globalActions.currentMonth]: (state, { payload }) => ({
     ...state,
-    currentMonth: payload,
+    month: payload,
   }),
   [authActions.logoutSuccess]: () => initialState.global.currentDate,
 });

@@ -5,7 +5,15 @@ import styles from './Statistics.module.css';
 
 class Statistics extends Component {
   componentDidMount() {
-    this.props.toggleStatsPage();
+    const {
+      toggleStatsPage,
+      getDaylyTransactions,
+      getMonthlyReport,
+    } = this.props;
+    toggleStatsPage();
+    getDaylyTransactions();
+
+    getMonthlyReport();
   }
 
   componentWillUnmount() {
