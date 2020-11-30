@@ -19,6 +19,14 @@ const initialState = {
       comment: '',
     },
 
+    transactionsDate: '',
+    page: 0,
+
+    // transactionsDate: {
+    //   month: new Date().getMonth() + 1,
+    //   year: new Date().getFullYear(),
+    // },
+
     dayRecords: [],
     monthReport: [], //{name, amount, percentage}
 
@@ -70,12 +78,18 @@ const transaction = createReducer(initialState.transactions.transaction, {
   [authActions.logoutSuccess]: unsetTransaction,
 });
 
+const transactionsDate = createReducer(
+  initialState.transactions.transactionsDate,
+  { [transactionsActions.setTransactionsDate]: (_, { payload }) => payload },
+);
+const page = createReducer(initialState.transactions.page, {});
+
 const dayRecords = createReducer(initialState.transactions.dayRecords, {
-  [transactionsActions.getDailyRecordsSuccess]: (_, payload) => payload,
+  [transactionsActions.getDailyRecordsSuccess]: (_, {payload}) => payload,
   [authActions.logoutSuccess]: () => initialState.transactions.dayRecords,
 });
 const monthReport = createReducer(initialState.transactions.monthReport, {
-  [transactionsActions.getMonthlyReportSuccess]: (_, payload) => payload,
+  [transactionsActions.getMonthlyReportSuccess]: (_, {payload}) => payload,
   [authActions.logoutSuccess]: () => initialState.transactions.monthReport,
 });
 
@@ -116,6 +130,8 @@ export default combineReducers({
   monthData,
   transactionCategories,
   transaction,
+  transactionsDate,
+  page,
   dayRecords,
   monthReport,
   isLoading,

@@ -56,9 +56,12 @@ const getChartData = () => (dispatch, getState) => {
     });
 };
 
-const getMonthsList = () => dispatch => {
-  const month = new Date().getMonth() + 1;
-  const year = new Date().getFullYear();
+const getMonthsList = () => (dispatch, getState) => {
+  const {
+    global: {
+      currentDate: { month, year },
+    },
+  } = getState();
 
   dispatch(familyActions.getMonthsListRequest());
 

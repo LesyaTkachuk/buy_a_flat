@@ -28,11 +28,9 @@ const PrognosisExpense = ({
   const dailyLimit = (dailySum - Number(transactionAmount)).toFixed(2);
   const monthLimit = (available - Number(transactionAmount)).toFixed(2);
 
-  console.log(transactionAmount);
-  console.log(monthBalance);
-
   const handleClick = () => {
-    createTransaction(transaction);
+    const { id, ...transactionToSend } = transaction;
+    createTransaction(transactionToSend);
     setExpenseBtnActive();
   };
   return (

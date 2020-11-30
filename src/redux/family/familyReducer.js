@@ -72,12 +72,12 @@ const info = createReducer(initialState.family.info, {
 });
 
 const monthsLeft = createReducer(initialState.family.monthsLeft, {
-  [familyActions.countMonthsLeft]: (state, { payload }) => payload.months,
+  [familyActions.countMonthsLeft]: (_, { payload }) => payload.months,
   [authActions.logoutSuccess]: () => initialState.family.monthsLeft,
 });
 
 const yearsLeft = createReducer(initialState.family.yearsLeft, {
-  [familyActions.countYearsLeft]: (state, { payload }) => payload.years,
+  [familyActions.countYearsLeft]: (_, { payload }) => payload.years,
   [authActions.logoutSuccess]: () => initialState.family.yearsLeft,
 });
 

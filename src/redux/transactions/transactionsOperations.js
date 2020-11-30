@@ -98,19 +98,32 @@ const deleteTransaction = () => dispatch => {
 };
 // delete api/transactions/${transactionId}
 
-const getDailyTransactions = () => dispatch => {
-  transactionsActions.getDailyTransactionsRequest();
+const getDailyTransactions = () => (dispatch, getState) => {
+  const {
+    transactions: { transactionsDate, page },
+    global: {
+      currentDate: { date, month, year },
+    },
+  } = getState();
 
+  const dateToSend = transactionsDate
+    ? transactionsDate
+    : `${year}-${month}-${date}`;
+
+  console.log(dateToSend);
+
+  transactionsActions.getDailyRecordsRequest();
+
+  console.log(page);
+  console.log(transactionsDate);
   axios
-    .get('api/transactions/day?date=${yyy-mm-dd}&page=${page}')
+    .get('api/transactions/day', { params: { date: dateToSend, page } })
     .then(({ data }) =>
-      dispatch(
-        transactionsActions.getDailyTransactionsSuccess(data.dayRecords),
-      ),
+      dispatch(transactionsActions.getDailyRecordsSuccess(data.dayRecords)),
     )
     .catch(error => {
       const message = error.response?.data?.message;
-      dispatch(transactionsActions.getDailyTransactionsError(message));
+      dispatch(transactionsActions.getDailyRecordsError(message));
     });
 };
 // get api/transactions/day?date=${yyy-mm-dd}&page=${page}
@@ -127,25 +140,33 @@ const getDailyTransactions = () => dispatch => {
 //             "userId"
 //         },
 
-const getMonthlyTransactions = () => dispatch => {
-  transactionsActions.getMonthlyTransactionsRequest();
+const getMonthlyReport = () => (dispatch, getState) => {
+  const {
+    global: {
+      currentDate: { month, year },
+    },
+  } = getState();
+
+  transactionsActions.getMonthlyReportRequest();
 
   axios
-    .get('api/transactions/stats/month?month=${month}&year=${year}')
+    .get('api/transactions/stats/month', { params: { month, year } })
     .then(({ data }) =>
-      dispatch(
-        transactionsActions.getMonthlyTransactionsSuccess(data.monthReport),
-      ),
+      dispatch(transactionsActions.getMonthlyReportSuccess(data.monthReport)),
     )
     .catch(error => {
       const message = error.response?.data?.message;
-      dispatch(transactionsActions.getMonthlyTransactionsError(message));
+      dispatch(transactionsActions.getMonthlyReportError(message));
     });
 };
 // get api/transactions/stats/month?month=${month}&year=${year}
-// response   { "transes": [ {
-//             "_id",
-//             "amount"}]}
+// {
+//   "monthReport": [
+//       {
+//           "category",
+//           "expense",
+//           "percent"
+//       },]}
 
 export default {
   getCategories,
@@ -154,5 +175,5 @@ export default {
   updateTransaction,
   deleteTransaction,
   getDailyTransactions,
-  getMonthlyTransactions,
+  getMonthlyReport,
 };

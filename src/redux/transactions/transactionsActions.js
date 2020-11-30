@@ -26,6 +26,8 @@ const getMonthlyReportRequest = createAction('transactions/getMonthlyRequest');
 const getMonthlyReportSuccess = createAction('transactions/getMonthlySuccess');
 const getMonthlyReportError = createAction('transactions/getMonthlyError');
 
+const setTransactionsDate = createAction('transactions/setTransactionsDate');
+
 const setTransaction = createAction('transactions/setTransactionSuccess');
 
 const setTransactionAmount = createAction('transactions/setAmountSuccess');
@@ -52,6 +54,7 @@ export default {
   getMonthlyReportRequest,
   getMonthlyReportSuccess,
   getMonthlyReportError,
+  setTransactionsDate,
   setTransaction,
   setTransactionAmount,
   unsetError,
