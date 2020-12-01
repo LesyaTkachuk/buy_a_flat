@@ -20,7 +20,7 @@
   border-collapse: collapse;
 }
 
-.line {
+.line td {
   width: 770px;
   height: 56px;
   padding: 18px 12px;
