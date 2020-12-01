@@ -95,18 +95,12 @@ const category = [
 const tabs = ['Список', 'Категории'];
 
 class StatisticsLists extends Component {
-  constructor(props) {
-    super(props);
+  state = { activeTab: true };
 
-    this.toggleClass = this.toggleClass.bind(this);
-
-    this.state = { activeTab: true };
-  }
-
-  toggleClass() {
+  toggleClass = () => {
     const currentState = this.state.activeTab;
     this.setState({ activeTab: !currentState });
-  }
+  };
 
   render() {
     let activeTab = this.state.activeTab;
