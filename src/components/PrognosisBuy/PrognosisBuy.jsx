@@ -6,7 +6,7 @@ import {
   familyOperations,
   familySelectors,
 } from '../../redux/family';
-import { globalActions, globalSelectors } from '../../redux/global';
+import { globalActions } from '../../redux/global';
 import styles from './PrognosisBuy.module.css';
 import { Link } from 'react-router-dom';
 
@@ -89,7 +89,7 @@ class PrognosisBuy extends Component {
   };
 
   render() {
-    const { yearsLeft, monthsLeft, isPlanButtonActive, familyId } = this.props;
+    const { yearsLeft, monthsLeft, familyId } = this.props;
     return (
       <div className={styles.componentBlock}>
         <div className={styles.contentWrapper}>
@@ -113,24 +113,13 @@ class PrognosisBuy extends Component {
               {familyId ? (
                 <Link
                   to="/expenses"
-                  className={
-                    !isPlanButtonActive
-                      ? `${styles.button} ${styles.disabled}`
-                      : `${styles.button}`
-                  }
+                  className={styles.button}
                   onClick={this.handleClick}
                 >
                   Подходит
                 </Link>
               ) : (
-                <button
-                  className={
-                    !isPlanButtonActive
-                      ? `${styles.button} ${styles.disabled}`
-                      : `${styles.button}`
-                  }
-                  onClick={this.handleClick}
-                >
+                <button className={styles.button} onClick={this.handleClick}>
                   Подходит
                 </button>
               )}
@@ -147,7 +136,6 @@ const mapStateToProps = state => ({
   family: familySelectors.getFamilyInfo(state),
   monthsLeft: familySelectors.getMonthsLeft(state),
   yearsLeft: familySelectors.getYearsLeft(state),
-  isPlanButtonActive: globalSelectors.getIsPlanBtnActive(state),
 });
 
 const mapDispatchToProps = {
