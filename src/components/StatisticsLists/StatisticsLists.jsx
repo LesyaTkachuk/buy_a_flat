@@ -131,16 +131,16 @@ class StatisticsLists extends Component {
           </button>
         </div>
         <div>
-          <table>
+          <table className={styles.table}>
             <tbody>
               {activeTab
                 ? list.map(item => (
                     <tr>
-                      <td>{item.data}</td>
-                      <td>{item.category}</td>
-                      <td>{item.price}</td>
-                      <td>{item.block}</td>
-                      <td>
+                      <td className={styles.line}>{item.data}</td>
+                      <td className={styles.line}>{item.category}</td>
+                      <td className={styles.line}>{item.price}</td>
+                      <td className={styles.line}>{item.block}</td>
+                      <td className={styles.line}>
                         <div>
                           <div className={styles.btnBlock}>
                             <img
@@ -162,9 +162,9 @@ class StatisticsLists extends Component {
                   ))
                 : category.map(item => (
                     <tr>
-                      <td>{item.block}</td>
-                      <td>{item.price}</td>
-                      <td>{item.percent}</td>
+                      <td className={styles.line}>{item.block}</td>
+                      <td className={styles.line}>{item.price}</td>
+                      <td className={styles.line}>{item.percent}</td>
                     </tr>
                   ))}
             </tbody>

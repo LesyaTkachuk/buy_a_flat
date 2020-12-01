@@ -16,18 +16,14 @@
   background-color: rgba(24, 25, 31, 0.06);
 }
 
-table {
+.table {
   border-collapse: collapse;
 }
 
-td {
+.line {
   width: 770px;
   height: 56px;
   padding: 18px 12px;
-}
-
-td,
-th {
   border-bottom: 1px solid rgba(0, 0, 0, 0.36);
   background: rgba(24, 25, 31, 0.03);
 }
