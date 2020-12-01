@@ -95,21 +95,11 @@ const category = [
 const tabs = ['Список', 'Категории'];
 
 class StatisticsLists extends Component {
-  constructor(props) {
-    super(props);
+  state = { activeTab: true };
 
-    this.handleClickOn = this.handleClickOn.bind(this);
-    this.handleClickOff = this.handleClickOff.bind(this);
-
-    this.state = { activeTab: true };
-  }
-
-  handleClickOff = () => {
-    this.setState({ activeTab: false });
-  };
-
-  handleClickOn = () => {
-    this.setState({ activeTab: true });
+  toggleClass = () => {
+    const currentState = this.state.activeTab;
+    this.setState({ activeTab: !currentState });
   };
 
   render() {
@@ -118,7 +108,7 @@ class StatisticsLists extends Component {
       <div>
         <div>
           <button
-            onClick={this.handleClickOn}
+            onClick={this.toggleClass}
             className={
               !activeTab ? styles.btnTab : styles.btnTab + ' ' + styles.active
             }
@@ -126,7 +116,7 @@ class StatisticsLists extends Component {
             {tabs[0]}
           </button>
           <button
-            onClick={this.handleClickOff}
+            onClick={this.toggleClass}
             className={
               activeTab ? styles.btnTab : styles.btnTab + ' ' + styles.active
             }
@@ -135,11 +125,11 @@ class StatisticsLists extends Component {
           </button>
         </div>
         <div>
-          <table>
+          <table className={styles.table}>
             <tbody>
               {activeTab
                 ? list.map(item => (
-                    <tr>
+                    <tr className={styles.line}>
                       <td>{item.data}</td>
                       <td>{item.category}</td>
                       <td>{item.price}</td>
@@ -165,7 +155,7 @@ class StatisticsLists extends Component {
                     </tr>
                   ))
                 : category.map(item => (
-                    <tr>
+                    <tr className={styles.line}>
                       <td>{item.block}</td>
                       <td>{item.price}</td>
                       <td>{item.percent}</td>
