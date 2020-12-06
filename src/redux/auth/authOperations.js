@@ -42,7 +42,7 @@ const login = credentials => dispatch => {
     .then(({ data }) => {
       token.set(data.token);
       dispatch(authActions.loginSuccess(data));
-      data.user.familyId && dispatch(familyOperations.getCurrentFamily());
+      // data.user.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
       const message = error.response?.data?.message;
@@ -66,7 +66,8 @@ const getCurrentUser = () => (dispatch, getState) => {
     .get('/api/users/current')
     .then(({ data }) => {
       dispatch(authActions.getCurrentUserSuccess(data));
-      data.familyId && dispatch(familyOperations.getCurrentFamily());
+      console.log(data);
+      // data.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
       console.dir(error);

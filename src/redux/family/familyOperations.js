@@ -28,17 +28,17 @@ const updateFamily = credentials => dispatch => {
     });
 };
 
-const getCurrentFamily = () => dispatch => {
-  dispatch(familyActions.getCurrentFamilyRequest());
+// const getCurrentFamily = () => dispatch => {
+//   dispatch(familyActions.getCurrentFamilyRequest());
 
-  axios
-    .get(`/api/families/current`)
-    .then(({ data }) => dispatch(familyActions.getCurrentFamilySuccess(data)))
-    .catch(error => {
-      const message = error.response?.data?.message;
-      dispatch(familyActions.getCurrentFamilyError(message));
-    });
-};
+//   axios
+//     .get(`/api/families/current`)
+//     .then(({ data }) => dispatch(familyActions.getCurrentFamilySuccess(data)))
+//     .catch(error => {
+//       const message = error.response?.data?.message;
+//       dispatch(familyActions.getCurrentFamilyError(message));
+//     });
+// };
 
 const getChartData = () => (dispatch, getState) => {
   const {
@@ -99,7 +99,7 @@ const updateGifts = () => dispatch => {
 export default {
   addFamily,
   updateFamily,
-  getCurrentFamily,
+  // getCurrentFamily,
   getChartData,
   getMonthsList,
   getFinanceData,

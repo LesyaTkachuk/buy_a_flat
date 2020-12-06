@@ -59,6 +59,20 @@ const setFamily = (state, { payload }) => {
 };
 const setError = (_, { payload }) => payload;
 const unsetError = () => initialState.family.error;
+const setCurrentFamily = (state, { payload }) => {
+  const { currentFamily } = payload.user;
+  if (currentFamily) {
+    const { id, giftsUnpacked, ...familyInfo } = currentFamily;
+    return { ...state, ...familyInfo };
+  }
+  return { ...state };
+};
+const setGifts = (state, { payload }) => {
+  const { currentFamily } = payload.user;
+  return currentFamily
+    ? { ...state, giftsForUnpacking: currentFamily.giftsForUnpacking }
+    : { ...state };
+};
 
 const info = createReducer(initialState.family.info, {
   [familyActions.updateOrSetFamily]: (state, { payload }) => ({
@@ -67,7 +81,9 @@ const info = createReducer(initialState.family.info, {
   }),
   [familyActions.addFamilySuccess]: setFamily,
   [familyActions.updateFamilySuccess]: setFamily,
-  [familyActions.getCurrentFamilySuccess]: setFamily,
+  [authActions.loginSuccess]: setCurrentFamily,
+  [authActions.getCurrentUserSuccess]: setCurrentFamily,
+  // [familyActions.getCurrentFamilySuccess]: setFamily,
   [authActions.logoutSuccess]: () => initialState.family.info,
 });
 
@@ -102,10 +118,12 @@ const gifts = createReducer(initialState.family.gifts, {
     giftsForUnpacking: payload.giftsForUnpacking,
     giftsUnpacked: state.giftsUnpacked + 1,
   }),
-  [familyActions.getCurrentFamilySuccess]: (state, { payload }) => ({
-    ...state,
-    ...payload.gifts,
-  }),
+  // [familyActions.getCurrentFamilySuccess]: (state, { payload }) => ({
+  //   ...state,
+  //   ...payload.gifts,
+  // }),
+  [authActions.loginSuccess]: setGifts,
+  [authActions.getCurrentUserSuccess]: setGifts,
   [authActions.logoutSuccess]: () => initialState.family.gifts,
   [familyActions.unsetGiftsUnpacked]: state => ({ ...state, giftsUnpacked: 0 }),
 });
