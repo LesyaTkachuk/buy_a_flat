@@ -22,11 +22,6 @@ const initialState = {
     transactionsDate: '',
     page: 0,
 
-    // transactionsDate: {
-    //   month: new Date().getMonth() + 1,
-    //   year: new Date().getFullYear(),
-    // },
-
     dayRecords: [],
     monthReport: [], //{name, amount, percentage}
 

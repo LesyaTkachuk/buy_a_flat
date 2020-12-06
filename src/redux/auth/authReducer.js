@@ -22,7 +22,6 @@ const setUser = (state, { payload }) => {
   console.log(user);
   return currentFamily ? { ...user, familyId: currentFamily.id } : { ...state };
 };
-// const setCurrentUser = (_, { payload }) => payload;
 const setToken = (_, { payload }) => payload.token;
 const setError = (_, { payload }) => payload;
 const unsetError = () => initialState.auth.error;
@@ -64,10 +63,10 @@ const isLoading = createReducer(initialState.auth.isLoading, {
 });
 
 const error = createReducer(initialState.auth.error, {
-  [authActions.loginRequest]: unsetError,
-  [authActions.logoutRequest]: unsetError,
-  [authActions.registerRequest]: unsetError,
-  [authActions.getCurrentUserRequest]: unsetError,
+  // [authActions.loginRequest]: unsetError,
+  // [authActions.logoutRequest]: unsetError,
+  // [authActions.registerRequest]: unsetError,
+  // [authActions.getCurrentUserRequest]: unsetError,
   [authActions.registerError]: setError,
   [authActions.loginError]: setError,
   [authActions.getCurrentUserError]: setError,

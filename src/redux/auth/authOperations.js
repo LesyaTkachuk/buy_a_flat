@@ -29,7 +29,9 @@ const register = credentials => (dispatch, getState) => {
       dispatch(globalActions.toggleVerifyNotif());
     })
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(authActions.registerError(message));
     });
 };
@@ -42,10 +44,11 @@ const login = credentials => dispatch => {
     .then(({ data }) => {
       token.set(data.token);
       dispatch(authActions.loginSuccess(data));
-      // data.user.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(authActions.loginError(message));
     });
 };
@@ -66,12 +69,12 @@ const getCurrentUser = () => (dispatch, getState) => {
     .get('/api/users/current')
     .then(({ data }) => {
       dispatch(authActions.getCurrentUserSuccess(data));
-      console.log(data);
-      // data.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
       console.dir(error);
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(authActions.getCurrentUserError(message));
       dispatch(authActions.clearToken());
     });
@@ -87,7 +90,9 @@ const logout = () => dispatch => {
       dispatch(authActions.logoutSuccess());
     })
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(authActions.logoutError(message));
       dispatch(authActions.clearToken());
     });

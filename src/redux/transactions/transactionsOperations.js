@@ -12,7 +12,9 @@ const getCategories = () => dispatch => {
       ),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.getCategoriesError(message));
     });
 }; // get api/transactions/categories response [ { name, icon}]
@@ -26,14 +28,12 @@ const getMonthsData = () => dispatch => {
       dispatch(transactionsActions.getMonthsDataSuccess(data)),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.getMonthsDataError(message));
     });
-}; // responce {
-//         monthBalance,
-//         dayLimit,
-//         monthLimit,
-//       }
+};
 
 const createTransaction = credentials => dispatch => {
   transactionsActions.createTransactionRequest();
@@ -44,7 +44,9 @@ const createTransaction = credentials => dispatch => {
       dispatch(transactionsActions.createTransactionSuccess(data)),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.createTransactionError(message));
     });
 }; // post('/api/transactions')
@@ -72,7 +74,9 @@ const updateTransaction = credentials => dispatch => {
       ),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.updateTransactionError(message));
     });
 }; // put api/transactions/${transactionId}
@@ -92,7 +96,9 @@ const deleteTransaction = () => dispatch => {
       dispatch(transactionsActions.deleteTransactionSuccess()),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.deleteTransactionError(message));
     });
 };
@@ -122,7 +128,9 @@ const getDailyTransactions = () => (dispatch, getState) => {
       dispatch(transactionsActions.getDailyRecordsSuccess(data.dayRecords)),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.getDailyRecordsError(message));
     });
 };
@@ -155,7 +163,9 @@ const getMonthlyReport = () => (dispatch, getState) => {
       dispatch(transactionsActions.getMonthlyReportSuccess(data.monthReport)),
     )
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(transactionsActions.getMonthlyReportError(message));
     });
 };
