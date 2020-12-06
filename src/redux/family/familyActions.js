@@ -10,10 +10,6 @@ const updateFamilyRequest = createAction('family/updateRequest');
 const updateFamilySuccess = createAction('family/updateSuccess');
 const updateFamilyError = createAction('family/updateError');
 
-const getCurrentFamilyRequest = createAction('family/getCurrentRequest');
-const getCurrentFamilySuccess = createAction('family/getCurrentSuccess');
-const getCurrentFamilyError = createAction('family/getCurrentError');
-
 const getChartDataRequest = createAction('family/getChartDataRequest');
 const getChartDataSuccess = createAction('family/getChartDataSuccess');
 const getChartDataError = createAction('family/getChartDataError');
@@ -46,9 +42,6 @@ export default {
   updateFamilyRequest,
   updateFamilySuccess,
   updateFamilyError,
-  getCurrentFamilyRequest,
-  getCurrentFamilySuccess,
-  getCurrentFamilyError,
   getChartDataRequest,
   getChartDataSuccess,
   getChartDataError,

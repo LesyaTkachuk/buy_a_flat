@@ -38,11 +38,9 @@ class LoginForm extends Component {
 
     isAuthFormOpen && toggleAuthForm();
     onLogin({ ...this.state });
-    // this.setState(this.initialValues);
   };
 
   render() {
-
     return (
       <div className={styles.modal__login}>
         <Formik
@@ -69,12 +67,11 @@ class LoginForm extends Component {
                   name="email"
                   placeholder="Your@e-mail.com"
                   className={
-                    (errors.email &&
-                      touched.email) ?
-                      (styles.loginRegist__input_error +
+                    errors.email && touched.email
+                      ? styles.loginRegist__input_error +
                         ' ' +
-                        styles.loginRegist__input) :
-                    styles.loginRegist__input
+                        styles.loginRegist__input
+                      : styles.loginRegist__input
                   }
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -86,21 +83,25 @@ class LoginForm extends Component {
                 </div>
               </label>
 
-              <label className={(styles.loginRegist__inputform + ' ' + styles.loginRegist__input_bottom_null)}>
+              <label
+                className={
+                  styles.loginRegist__inputform +
+                  ' ' +
+                  styles.loginRegist__input_bottom_null
+                }
+              >
                 <label className={styles.loginRegist__input_text}>Пароль</label>
                 <input
                   type="password"
                   name="password"
                   placeholder="Введите пароль"
                   className={
-                    (errors.password &&
-                      touched.password) ?
-                      (styles.loginRegist__input_error +
+                    errors.password && touched.password
+                      ? styles.loginRegist__input_error +
                         ' ' +
-                        styles.loginRegist__input) :
-                    styles.loginRegist__input
+                        styles.loginRegist__input
+                      : styles.loginRegist__input
                   }
-                  // onChange={this.handleChange}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}

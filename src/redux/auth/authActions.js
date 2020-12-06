@@ -16,10 +16,6 @@ const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const getCurrentUserError = createAction('auth/getCurrentUserError');
 
-const googleAuthRequest = createAction('auth/googleAuthRequest');
-const googleAuthSuccess = createAction('auth/googleAuthSuccess');
-const googleAuthError = createAction('auth/googleAuthError');
-
 const clearToken = createAction('auth/clearToken');
 
 const setToken = createAction('auth/setToken');
@@ -40,9 +36,6 @@ export default {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
-  googleAuthRequest,
-  googleAuthSuccess,
-  googleAuthError,
   unsetError,
   setToken,
 };

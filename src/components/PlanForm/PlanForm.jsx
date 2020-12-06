@@ -47,7 +47,7 @@ class PlanForm extends Component {
       }));
     }
     if (this.formCheck()) {
-      const debounceFunc = debounce(1000, this.formSubmit);
+      const debounceFunc = debounce(1500, this.formSubmit);
       debounceFunc();
     }
   };

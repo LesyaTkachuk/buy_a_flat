@@ -10,7 +10,9 @@ const addFamily = credentials => dispatch => {
     .post('/api/families', credentials)
     .then(({ data }) => dispatch(familyActions.addFamilySuccess(data)))
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(familyActions.addFamilyError(message));
     });
 };
@@ -22,23 +24,12 @@ const updateFamily = credentials => dispatch => {
     .put(`/api/families`, credentials)
     .then(({ data }) => dispatch(familyActions.updateFamilySuccess(data)))
     .catch(error => {
-      const code = error.message;
-      const message = error.response?.data?.message;
-      dispatch(familyActions.updateFamilyError({ code, message }));
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
+      dispatch(familyActions.updateFamilyError(message));
     });
 };
-
-// const getCurrentFamily = () => dispatch => {
-//   dispatch(familyActions.getCurrentFamilyRequest());
-
-//   axios
-//     .get(`/api/families/current`)
-//     .then(({ data }) => dispatch(familyActions.getCurrentFamilySuccess(data)))
-//     .catch(error => {
-//       const message = error.response?.data?.message;
-//       dispatch(familyActions.getCurrentFamilyError(message));
-//     });
-// };
 
 const getChartData = () => (dispatch, getState) => {
   const {
@@ -51,7 +42,9 @@ const getChartData = () => (dispatch, getState) => {
     .get('/api/transactions/stats/annual', { params: chartDate })
     .then(({ data }) => dispatch(familyActions.getChartDataSuccess(data)))
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(familyActions.getChartDataError(message));
     });
 };
@@ -69,7 +62,9 @@ const getMonthsList = () => (dispatch, getState) => {
     .get('/api/transactions/stats/annual', { params: { month, year } })
     .then(({ data }) => dispatch(familyActions.getMonthsListSuccess(data)))
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(familyActions.getMonthsListError(message));
     });
 };
@@ -81,7 +76,9 @@ const getFinanceData = () => dispatch => {
     .get('/api/families/stats/flat')
     .then(({ data }) => dispatch(familyActions.getFinanceDataSuccess(data)))
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(familyActions.getFinanceDataError(message));
     });
 };
@@ -91,7 +88,9 @@ const updateGifts = () => dispatch => {
     .put('api/gifts/unpack')
     .then(({ data }) => dispatch(familyActions.updateGiftsSuccess(data.gifts)))
     .catch(error => {
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.message;
       dispatch(familyActions.updateGiftsError(message));
     });
 };
@@ -99,7 +98,6 @@ const updateGifts = () => dispatch => {
 export default {
   addFamily,
   updateFamily,
-  // getCurrentFamily,
   getChartData,
   getMonthsList,
   getFinanceData,

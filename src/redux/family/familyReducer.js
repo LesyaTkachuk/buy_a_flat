@@ -39,7 +39,7 @@ const initialState = {
   },
 };
 
-const setFamily = (state, { payload }) => {
+const setFamily = (_, { payload }) => {
   const {
     balance,
     flatPrice,
@@ -83,7 +83,6 @@ const info = createReducer(initialState.family.info, {
   [familyActions.updateFamilySuccess]: setFamily,
   [authActions.loginSuccess]: setCurrentFamily,
   [authActions.getCurrentUserSuccess]: setCurrentFamily,
-  // [familyActions.getCurrentFamilySuccess]: setFamily,
   [authActions.logoutSuccess]: () => initialState.family.info,
 });
 
@@ -118,10 +117,6 @@ const gifts = createReducer(initialState.family.gifts, {
     giftsForUnpacking: payload.giftsForUnpacking,
     giftsUnpacked: state.giftsUnpacked + 1,
   }),
-  // [familyActions.getCurrentFamilySuccess]: (state, { payload }) => ({
-  //   ...state,
-  //   ...payload.gifts,
-  // }),
   [authActions.loginSuccess]: setGifts,
   [authActions.getCurrentUserSuccess]: setGifts,
   [authActions.logoutSuccess]: () => initialState.family.gifts,
