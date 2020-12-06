@@ -58,8 +58,6 @@ const transactionCategories = createReducer(
   initialState.transactions.transactionCategories,
   {
     [transactionsActions.getCategoriesSuccess]: (_, { payload }) => payload,
-    [authActions.logoutSuccess]: () =>
-      initialState.transactions.transactionCategories,
   },
 );
 
@@ -85,11 +83,11 @@ const transactionsDate = createReducer(
 const page = createReducer(initialState.transactions.page, {});
 
 const dayRecords = createReducer(initialState.transactions.dayRecords, {
-  [transactionsActions.getDailyRecordsSuccess]: (_, {payload}) => payload,
+  [transactionsActions.getDailyRecordsSuccess]: (_, { payload }) => payload,
   [authActions.logoutSuccess]: () => initialState.transactions.dayRecords,
 });
 const monthReport = createReducer(initialState.transactions.monthReport, {
-  [transactionsActions.getMonthlyReportSuccess]: (_, {payload}) => payload,
+  [transactionsActions.getMonthlyReportSuccess]: (_, { payload }) => payload,
   [authActions.logoutSuccess]: () => initialState.transactions.monthReport,
 });
 

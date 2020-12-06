@@ -99,8 +99,8 @@ const finance = createReducer(initialState.family.financeStatistics, {
 
 const gifts = createReducer(initialState.family.gifts, {
   [familyActions.updateGiftsSuccess]: (state, { payload }) => ({
-    ...state,
-    ...payload,
+    giftsForUnpacking: payload.giftsForUnpacking,
+    giftsUnpacked: state.giftsUnpacked + 1,
   }),
   [familyActions.getCurrentFamilySuccess]: (state, { payload }) => ({
     ...state,

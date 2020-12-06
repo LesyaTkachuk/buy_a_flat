@@ -11,6 +11,8 @@ import { globalActions, globalSelectors } from '../../redux/global';
 
 const PrognosisExpense = ({
   transaction,
+  dayLimit,
+  monthLimit,
   transactionAmount,
   info,
   createTransaction,
@@ -18,15 +20,15 @@ const PrognosisExpense = ({
   isExpenseBtnActive,
   monthBalance,
 }) => {
-  const daysToMonthEnd = moment().daysInMonth() - new Date().getDate() + 1;
+  // const daysToMonthEnd = moment().daysInMonth() - new Date().getDate() + 1;
 
   // const income = info.totalSalary + info.passiveIncome;
-  const available =
-    (monthBalance * (100 - info.incomePercentageToSavings)) / 100;
-  const dailySum = available / daysToMonthEnd;
+  // const available =
+  //   (monthBalance * (100 - info.incomePercentageToSavings)) / 100;
+  // const dailySum = available / daysToMonthEnd;
 
-  const dailyLimit = (dailySum - Number(transactionAmount)).toFixed(2);
-  const monthLimit = (available - Number(transactionAmount)).toFixed(2);
+  // const dailyLimit = (dailySum - Number(transactionAmount)).toFixed(2);
+  // const monthLimit = (available - Number(transactionAmount)).toFixed(2);
 
   const handleClick = () => {
     const { id, ...transactionToSend } = transaction;
@@ -36,12 +38,12 @@ const PrognosisExpense = ({
   return (
     <div className={styles.wrp}>
       <div className={styles.inner}>
-        <p className={styles.value}>{dailyLimit} &#x20B4;</p>
+        <p className={styles.value}>{dayLimit.toFixed(2)} &#x20B4;</p>
         <p className={styles.small}>Лимит на день</p>
       </div>
 
       <div className={styles.inner}>
-        <p className={styles.value}>{monthLimit} &#x20B4;</p>
+        <p className={styles.value}>{monthLimit.toFixed(2)} &#x20B4;</p>
         <p className={styles.small}>Отклонение от плановой суммы накопления</p>
       </div>
 
@@ -58,6 +60,8 @@ const PrognosisExpense = ({
 };
 
 const mapStateToProps = state => ({
+  dayLimit: transactionsSelectors.dayLimit(state),
+  monthLimit: transactionsSelectors.monthLimit(state),
   monthBalance: transactionsSelectors.getMonthBalance(state),
   transactionAmount: transactionsSelectors.getTransactionAmount(state),
   transaction: transactionsSelectors.getTransaction(state),

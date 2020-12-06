@@ -8,6 +8,8 @@ const toggleAuthForm = createAction('global/toggleAuthForm');
 
 const toggleHasGifts = createAction('global/toggleHasGifts');
 
+const setHasGiftsTrue = createAction('global/setHasGiftsTrue');
+
 const toggleLogout = createAction('global/toggleLogout');
 
 const toggleVerifyNotif = createAction('global/toggleVerifyNotif');
@@ -32,6 +34,7 @@ export default {
   toggleModal,
   toggleShowLogin,
   toggleHasGifts,
+  setHasGiftsTrue,
   toggleLogout,
   toggleVerifyNotif,
   toggleShowNavPage,

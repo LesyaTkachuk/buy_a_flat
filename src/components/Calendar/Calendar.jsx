@@ -19,9 +19,6 @@ class Calendar extends Component {
 
     setTransactionsDate(dateString);
     getDaylyTransactions();
-
-    console.log(jsDate);
-    console.log(dateString);
   };
 
   resetState = () => this.setState({ value: null });
@@ -39,9 +36,6 @@ class Calendar extends Component {
             minDate="2019-12-01"
             maxDate={this.state.date}
             locale="ru"
-            // small=true
-            // startMode="month"
-            //   value="2019-12-01"
             className="my-custom-datepicker-component"
           />
         </div>

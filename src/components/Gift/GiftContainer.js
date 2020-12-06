@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   onGiftClick: familyOperations.updateGifts,
   toggleHasGifts: globalActions.toggleHasGifts,
+  setHasGiftsTrue: globalActions.setHasGiftsTrue,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gift);

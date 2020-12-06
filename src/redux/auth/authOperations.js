@@ -69,6 +69,7 @@ const getCurrentUser = () => (dispatch, getState) => {
       data.familyId && dispatch(familyOperations.getCurrentFamily());
     })
     .catch(error => {
+      console.dir(error);
       const message = error.response?.data?.message;
       dispatch(authActions.getCurrentUserError(message));
       dispatch(authActions.clearToken());
