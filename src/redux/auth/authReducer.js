@@ -16,8 +16,13 @@ const initialState = {
   },
 };
 
-const setUser = (state, { payload }) => ({ ...state, ...payload.user });
-const setCurrentUser = (_, { payload }) => payload;
+const setUser = (state, { payload }) => {
+  const { currentFamily, ...user } = payload.user;
+  console.log(currentFamily);
+  console.log(user);
+  return currentFamily ? { ...user, familyId: currentFamily.id } : { ...state };
+};
+// const setCurrentUser = (_, { payload }) => payload;
 const setToken = (_, { payload }) => payload.token;
 const setError = (_, { payload }) => payload;
 const unsetError = () => initialState.auth.error;
@@ -25,10 +30,10 @@ const unsetError = () => initialState.auth.error;
 const user = createReducer(initialState.auth.user, {
   [authActions.registerSuccess]: setUser,
   [authActions.loginSuccess]: setUser,
-  [authActions.getCurrentUserSuccess]: setCurrentUser,
+  [authActions.getCurrentUserSuccess]: setUser,
   [familyActions.addFamilySuccess]: (state, { payload }) => ({
     ...state,
-    familyId: payload.info._id,
+    familyId: payload.id,
   }),
   [authActions.logoutSuccess]: () => initialState.auth.user,
 });

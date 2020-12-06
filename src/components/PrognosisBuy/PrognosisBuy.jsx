@@ -37,8 +37,10 @@ class PrognosisBuy extends Component {
     }
 
     const { countMonthsLeft, countYearsLeft } = this.props;
-    countMonthsLeft(this.leftYearMonth());
-    countYearsLeft(this.leftYearMonth());
+    if (this.props.familyId) {
+      countMonthsLeft(this.leftYearMonth());
+      countYearsLeft(this.leftYearMonth());
+    }
   }
 
   leftYearMonth = () => {

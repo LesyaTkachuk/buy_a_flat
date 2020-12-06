@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getFamily: familyOperations.getCurrentFamily,
+  // getFamily: familyOperations.getCurrentFamily,
   setFamily: familyActions.updateOrSetFamily,
   countMonthsLeft: familyActions.countMonthsLeft,
   countYearsLeft: familyActions.countYearsLeft,
