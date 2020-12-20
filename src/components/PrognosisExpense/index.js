@@ -1,1 +1,1 @@
-export { default } from './PrognosisExpense.jsx';
+export { default } from './PrognosisExpenseContainer';

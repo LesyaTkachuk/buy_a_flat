@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { transactionsOperations } from '../transactions';
 import familyActions from './familyActions';
 
 axios.defaults.baseURL = 'https://buy-a-flat.herokuapp.com';
@@ -22,7 +23,12 @@ const updateFamily = credentials => dispatch => {
 
   axios
     .put(`/api/families`, credentials)
-    .then(({ data }) => dispatch(familyActions.updateFamilySuccess(data)))
+    .then(({ data }) => {
+      dispatch(familyActions.updateFamilySuccess(data));
+    })
+    .then(() => {
+      dispatch(transactionsOperations.getMonthsData());
+    })
     .catch(error => {
       const message = error.response?.data?.message
         ? error.response?.data?.message
